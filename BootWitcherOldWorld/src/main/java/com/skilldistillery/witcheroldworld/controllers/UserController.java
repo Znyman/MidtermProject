@@ -16,7 +16,7 @@ public class UserController {
 	
 	@GetMapping(path = {"", "/", "home.do"})
 	public String home(Model model) {
-		User user = userDAO.authenticateUser("test", "test");
+		User user = userDAO.authenticateUser("walkerjohnelle", "9ol.)P:?");
 		model.addAttribute("testUser", user);
 		return "home";
 	}
