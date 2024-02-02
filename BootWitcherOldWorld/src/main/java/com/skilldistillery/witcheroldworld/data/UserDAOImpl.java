@@ -25,4 +25,11 @@ public class UserDAOImpl implements UserDAO {
 		return u;
 	}
 
+	@Override
+	public User create(User user) {
+		em.persist(user);
+		return user;
+//Comment
+	}
+
 }
