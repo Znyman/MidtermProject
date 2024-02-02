@@ -31,7 +31,7 @@
 
 </form><br>
 <form action="logout.do" method="GET">
-<input type="submit" value="Play Game">
+<input type="submit" value="Logout">
 </form>
 
 </body>
