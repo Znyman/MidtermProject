@@ -14,7 +14,7 @@
 <body>
  <c:choose>
         <c:when test="${loginUser!=null}">
-            <p>User id: <c:out value="${loginUser.userName}"></c:out></p>
+            <p>User id: <c:out value="${loginUser.username}"></c:out></p>
             <p>Email:<c:out value="${loginUser.email}"></c:out></p>
             <p>Role: <c:out value="${loginUser.role}"></c:out></p>
             <p>User Active: <c:out value="${loginUser.enabled}"></c:out></p>
