@@ -29,7 +29,7 @@ public class UserDAOImpl implements UserDAO {
 	public User create(User user) {
 		em.persist(user);
 		return user;
-//Comment
+
 	}
 
 }
