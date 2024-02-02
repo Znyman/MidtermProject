@@ -2,28 +2,32 @@ package com.skilldistillery.witcheroldworld.entities;
 
 import java.util.Objects;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class User {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+	@Column(name = "user_name")
 	private String username;
-	
+
 	private String password;
-	
+
 	private boolean enabled;
-	
+
 	private String role;
-	
-	
-	public User() {}
+
+	private String email;
+
+	@OneToOne(mappedBy = "user")
+	private Player player;
 
 	public int getId() {
 		return id;
@@ -65,6 +69,20 @@ public class User {
 		this.role = role;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled
+				+ ", role=" + role + ", email=" + email + "]";
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -81,12 +99,5 @@ public class User {
 		User other = (User) obj;
 		return id == other.id;
 	}
-
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", enabled=" + enabled + ", role=" + role + "]";
-	}
-	
-	
 
 }
