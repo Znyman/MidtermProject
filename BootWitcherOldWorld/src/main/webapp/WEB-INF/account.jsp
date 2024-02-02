@@ -29,8 +29,10 @@
 <form action="playGame.do" method="GET">
 <input type="submit" value="Play Game">
 
+</form><br>
+<form action="logout.do" method="GET">
+<input type="submit" value="Play Game">
 </form>
-
 
 </body>
 </html>
