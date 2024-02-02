@@ -2,16 +2,12 @@ package com.skilldistillery.witcheroldworld.entities;
 
 import java.util.List;
 import java.util.Objects;
-
-import javax.tools.JavaFileManager.Location;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
@@ -33,9 +29,9 @@ public class Player {
 	@Column(name = "image_url")
 	private String imageUrl;
 
-	@ManyToOne
-	@JoinColumn(name = "location_id")
-	private Location location;
+//	@ManyToOne
+//	@JoinColumn(name = "location_id")
+//	private Location location;
 
 	@OneToMany(mappedBy = "player")
 	private List<Weapon> weapons;
@@ -103,13 +99,13 @@ public class Player {
 		this.imageUrl = imageUrl;
 	}
 
-	public Location getLocation() {
-		return location;
-	}
+//	public Location getLocation() {
+//		return location;
+//	}
 
-	public void setLocation(Location location) {
-		this.location = location;
-	}
+//	public void setLocation(Location location) {
+//		this.location = location;
+//	}
 
 	public List<Weapon> getWeapons() {
 		return weapons;
@@ -135,12 +131,12 @@ public class Player {
 		this.user = user;
 	}
 
-	@Override
-	public String toString() {
-		return "Player [id=" + id + ", name=" + name + ", description=" + description + ", currentHealth="
-				+ currentHealth + ", maxHealth=" + maxHealth + ", experienceLevel=" + experienceLevel + ", imageUrl="
-				+ imageUrl + ", location=" + location + ", user=" + user + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "Player [id=" + id + ", name=" + name + ", description=" + description + ", currentHealth="
+//				+ currentHealth + ", maxHealth=" + maxHealth + ", experienceLevel=" + experienceLevel + ", imageUrl="
+//				+ imageUrl + ", location=" + location + ", user=" + user + "]";
+//	}
 
 	@Override
 	public int hashCode() {
