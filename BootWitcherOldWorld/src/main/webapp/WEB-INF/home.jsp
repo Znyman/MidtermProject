@@ -10,6 +10,7 @@
 <body>
 
 	<jsp:include page="nav.jsp" />
+	<jsp:include page="createAccount.jsp" />
 
 	<h2>Welcome to the Witcher Old World Game</h2>
 
