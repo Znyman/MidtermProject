@@ -1,7 +1,9 @@
 package com.skilldistillery.witcheroldworld.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -129,6 +131,48 @@ public class Player {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public void addWeapon(Weapon weapon) {
+		if (weapons == null) {
+			weapons = new ArrayList<>();
+		}
+
+		if (!weapons.contains(weapon)) {
+			weapons.add(weapon);
+			if (weapon.getPlayer() != null) {
+				weapon.getPlayer().removeWeapon(weapon);
+			}
+			weapon.setPlayer(this);
+		}
+	}
+
+	public void removeWeapon(Weapon weapon) {
+		if (weapons != null && weapons.contains(weapon)) {
+			weapons.remove(weapon);
+			weapon.setPlayer(null);
+		}
+	}
+
+	public void addArmor(Armor armor) {
+		if (armors == null) {
+			armors = new ArrayList<>();
+		}
+
+		if (!armors.contains(armor)) {
+			armors.add(armor);
+			if (armor.getPlayer() != null) {
+				armor.getPlayer().removeArmor(armor);
+			}
+			armor.setPlayer(this);
+		}
+	}
+
+	public void removeArmor(Armor armor) {
+		if (armors != null && armors.contains(armor)) {
+			armors.remove(armor);
+			armor.setPlayer(null);
+		}
 	}
 
 	@Override
