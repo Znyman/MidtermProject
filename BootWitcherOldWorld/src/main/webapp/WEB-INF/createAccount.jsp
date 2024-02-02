@@ -8,7 +8,6 @@
     <title>Witcher Board Game - Create Account</title>
 </head>
 <body>
-    <jsp:include page="nav.jsp" />
 
     <h2>Create Account</h2>
     <form action="createAccount.do" method="POST">
