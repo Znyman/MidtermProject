@@ -62,4 +62,9 @@ public class UserController {
 		return "account";
 	}
 	
+	@GetMapping(path = "account.do")
+	public String goToAccountPage() {
+		return "account";
+	}
+	
 }
