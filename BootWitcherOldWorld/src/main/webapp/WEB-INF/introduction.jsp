@@ -41,7 +41,9 @@
     <p>For you are a Witcher, the last light in the encroaching night, a beacon of hope in a world that has lost its way. The time has come to write your legend in the blood of the beasts that threaten the realm, to walk the path of the Witcher, where every choice is a burden and every battle a chance at redemption.</p>
     <p>To prepare your journey lets create some weapons and armor...</p>
 <br>
+
 <form action="manageInventory.do" method="GET">
+<input type="hidden" name="playerId" value="${player.id}">
 <input type="submit" value="Blacksmithing">
 </form><br>
 </div>
