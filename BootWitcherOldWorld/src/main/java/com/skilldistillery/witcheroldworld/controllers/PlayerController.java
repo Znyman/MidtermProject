@@ -49,6 +49,7 @@ public class PlayerController {
 	@PostMapping("updatePlayer.do")
 	public String updatePlayer(Player player, Model model) {
 		Player managedPlayer = playerDAO.updatePlayer(player);
+		System.out.println(managedPlayer.getExperienceLevel());
 		model.addAttribute("player", managedPlayer);
 		model.addAttribute("updateMessage", "Your player has been updated successfully.");
 		return "showPlayer";
