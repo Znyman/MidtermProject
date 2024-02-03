@@ -44,9 +44,9 @@ public class WeaponDAOImpl implements WeaponDAO {
 	}
 
 	@Override
-	public List<Weapon> findAll(Weapon weapon) {
+	public List<Weapon> findAll(int playerId) {
 		String jpql = "SELECT weapon FROM Weapon weapon WHERE player_id = :player_id";
-		List<Weapon> weapons = em.createQuery(jpql, Weapon.class).setParameter("player_id", weapon.getPlayer().getId()).getResultList();
+		List<Weapon> weapons = em.createQuery(jpql, Weapon.class).setParameter("player_id", playerId).getResultList();
 		return weapons;
 	}
 

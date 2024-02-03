@@ -5,8 +5,6 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.witcheroldworld.entities.Armor;
-import com.skilldistillery.witcheroldworld.entities.Weapon;
-
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
@@ -46,9 +44,9 @@ private EntityManager em;
 	}
 
 	@Override
-	public List<Armor> findAll(Armor armor) {
+	public List<Armor> findAll(int playerId) {
 		String jpql = "SELECT armor FROM Armor armor WHERE player_id = :player_id";
-		List<Armor> armors = em.createQuery(jpql, Armor.class).setParameter("player_id", armor.getPlayer().getId()).getResultList();
+		List<Armor> armors = em.createQuery(jpql, Armor.class).setParameter("player_id", playerId).getResultList();
 		return armors;
 	}
 
