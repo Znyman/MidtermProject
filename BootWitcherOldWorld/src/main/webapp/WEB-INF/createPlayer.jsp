@@ -10,7 +10,7 @@
 <body>
 	<c:choose>
 		<c:when test="${loginUser!=null}">
-			<h2>Create Account</h2>
+			<h2>Create Player</h2>
 			<form action="createPlayer.do" method="POST">
 				<label for="name">Character Name:</label>
 				<input type="text" id="name" name="name" required>
