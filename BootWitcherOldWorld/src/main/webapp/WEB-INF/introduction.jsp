@@ -33,7 +33,7 @@
 
 <div class="container text-center mt-5">
     <h2>Welcome to our game!</h2>
-    <img src="https://ibb.co/xMwFH7C" alt="Witcher Image" class="img-fluid rounded">
+    <img src="https://i.ibb.co/RCtjyDv/DALL-E-2024-02-03-14-11-09-Create-an-image-of-a-Witcher-style-character-standing-on-a-hill-at-dawn-l.png" alt="Witcher Image" class="img-fluid rounded">
     <p class="mt-4">In the distant realm of Ardyl, a land where myths walk amongst men and magic is woven into the very fabric of reality, the echoes of a thousand battles linger, and dark creatures lurk in the shadows of a world torn by chaos and strife. You are a Witcher, a wanderer, and a master of the sword and sorcery, trained from birth to hunt the fearsome beasts that prey on the innocent.</p>
     <p>Your name is whispered in the hushed tones of reverence and fear, for your kind is as rare as it is misunderstood—mutants, gifted with extraordinary abilities, created to face the terrors that ordinary mortals dare not confront. You tread a lonely path, for few can understand the sacrifices you have made, the things you have endured, and the burdens you carry.</p>
     <p>As dawn breaks over the jagged peaks of the Ironback Mountains, a missive finds its way into your hands. It speaks of a village, Edgewater, on the brink of despair, besieged by a darkness that no man can name. The townsfolk are desperate, their numbers dwindling with each passing night, and their pleas for a savior have gone unanswered... until now.</p>
