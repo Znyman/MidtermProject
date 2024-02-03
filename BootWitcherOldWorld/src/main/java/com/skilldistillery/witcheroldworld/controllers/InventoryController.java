@@ -25,12 +25,18 @@ public class InventoryController {
 	private ArmorDAO armorDAO;
 
 	@GetMapping("manageInventory.do")
-	public String getAllInventory(@RequestParam("playerId")int playerId, Model model) {
+	public String getAllInventory(@RequestParam("playerId") int playerId, Model model) {
 		List<Weapon> weaponsInventory = weaponDAO.findAll(playerId);
 		model.addAttribute("weapons", weaponsInventory);
 		List<Armor> armorsInventory = armorDAO.findAll(playerId);
 		model.addAttribute("armors", armorsInventory);
 		return "manageInventory";
+	}
+
+	@GetMapping("newWeapon.do")
+	public String showCreateWeaponForm() {
+
+		return "createWeapon";
 	}
 
 	@PostMapping("newWeapon.do")
@@ -64,6 +70,12 @@ public class InventoryController {
 			model.addAttribute("updateMessage", "Weapon not found!");
 		}
 		return "showWeapon";
+	}
+
+	@GetMapping("newArmor.do")
+	public String showCreateArmorForm() {
+
+		return "createArmor";
 	}
 
 	@PostMapping("newArmor.do")
