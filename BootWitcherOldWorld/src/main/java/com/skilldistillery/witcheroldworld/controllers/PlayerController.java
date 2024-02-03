@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -39,7 +40,7 @@ public class PlayerController {
 	}
 
 	@GetMapping("playerAdded.do")
-	public String playerCreated(Player player, RedirectAttributes redirectAttributes) {
+	public String playerCreated(@ModelAttribute("player") Player player, RedirectAttributes redirectAttributes) {
 		redirectAttributes.addFlashAttribute("player", player);
 
 		return "redirect:intro.do";
@@ -65,7 +66,7 @@ public class PlayerController {
 	}
 
 	@GetMapping("intro.do")
-	public String startGame(Model model, Player player) {
+	public String startGame(@ModelAttribute("player") Player player, Model model) {
 		model.addAttribute("player", player);
 
 		return "introduction";
