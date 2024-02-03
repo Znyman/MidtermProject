@@ -35,7 +35,8 @@ public class InventoryController {
 
 	@PostMapping("newWeapon.do")
 	public String addWeaponToDao(Weapon weapon, RedirectAttributes redirectAttributes) {
-		weaponDAO.createWeapon(weapon);
+		Weapon managedWeapon = weaponDAO.createWeapon(weapon);
+		redirectAttributes.addFlashAttribute("weapon", managedWeapon);
 		redirectAttributes.addFlashAttribute("updateMessage", "Weapon added successfully!");
 		return "redirect:weaponAdded.do";
 	}
@@ -67,7 +68,8 @@ public class InventoryController {
 
 	@PostMapping("newArmor.do")
 	public String saveArmor(Armor armor, RedirectAttributes redirectAttributes) {
-		armorDAO.createArmor(armor);
+		Armor managedArmor = armorDAO.createArmor(armor);
+		redirectAttributes.addFlashAttribute("armor", managedArmor);
 		redirectAttributes.addFlashAttribute("updateMessage", "Armor added successfully!");
 		return "redirect:armorAdded.do";
 	}
