@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -26,7 +27,7 @@ public class InventoryController {
 	private ArmorDAO armorDAO;
 
 	@GetMapping("manageInventory.do")
-	public String getAllInventory(Player player, Model model) {
+	public String getAllInventory(@ModelAttribute("player") Player player, Model model) {
 		model.addAttribute("player", player);
 		List<Weapon> weaponsInventory = weaponDAO.findAll(player.getId());
 		model.addAttribute("weapons", weaponsInventory);
@@ -36,7 +37,7 @@ public class InventoryController {
 	}
 
 	@GetMapping("newWeapon.do")
-	public String showCreateWeaponForm(Player player, Model model) {
+	public String showCreateWeaponForm(@ModelAttribute("player") Player player, Model model) {
 		model.addAttribute("player", player);
 
 		return "createWeapon";
@@ -76,7 +77,7 @@ public class InventoryController {
 	}
 
 	@GetMapping("newArmor.do")
-	public String showCreateArmorForm(Player player, Model model) {
+	public String showCreateArmorForm(@ModelAttribute("player") Player player, Model model) {
 		model.addAttribute("player", player);
 
 		return "createArmor";
