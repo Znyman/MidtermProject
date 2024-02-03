@@ -41,7 +41,7 @@ public class PlayerController {
 	@GetMapping("playerAdded.do")
 	public String playerCreated(Player player) {
 
-		return "intro.do";
+		return "redirect:intro.do";
 	}
 
 	@PostMapping("updatePlayer.do")

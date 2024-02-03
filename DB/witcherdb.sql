@@ -215,7 +215,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `witcherdb`;
-INSERT INTO `armor` (`id`, `name`, `defense`, `description`, `tier`, `player_id`) VALUES (1, 'leather boots', 1, 'worn leather boots from witcher training', 1, 1);
+INSERT INTO `armor` (`id`, `name`, `defense`, `description`, `tier`, `player_id`) VALUES (1, 'leather boots', 1, 'worn leather boots from Witcher training', 1, 1);
 
 COMMIT;
 
