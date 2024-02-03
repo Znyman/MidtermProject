@@ -33,7 +33,6 @@ public class PlayerController {
 	@PostMapping("createPlayer.do")
 	public String createPlayer(Player player, RedirectAttributes redirectAttributes) {
 		Player managedPlayer = playerDAO.createPlayer(player);
-
 		redirectAttributes.addFlashAttribute("player", managedPlayer);
 		redirectAttributes.addFlashAttribute("updateMessage", "Player added successfully!");
 		return "redirect:playerAdded.do";
