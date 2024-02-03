@@ -5,7 +5,7 @@ import java.util.List;
 import com.skilldistillery.witcheroldworld.entities.Armor;
 
 public interface ArmorDAO {
-
+	Armor findById(int id);
 	Armor createArmor(Armor armor);
 	Armor updateArmor(Armor armor);
 	boolean deleteArmor(int id);
