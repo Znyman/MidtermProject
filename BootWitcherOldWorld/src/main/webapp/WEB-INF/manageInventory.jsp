@@ -32,13 +32,14 @@
 You have ${player.experienceLevel} experience which means you can craft ${player.experienceLevel} pieces of gear before heading out on your next journey!
 	<br>
 
-	<form action="createArmor.do" method="POST">
+	<form action="newArmor.do" method="GET">
 		<input type="submit" value="Create Armor">
 	</form>
 	<br>
-	<form action="createWeapon.do" method="POST">
+	<form action="newWeapon.do" method="GET">
 		<input type="submit" value="Create Weapon">
 	</form>
+
 
 </body>
 </html>
