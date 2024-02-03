@@ -24,6 +24,12 @@ public class PlayerController {
 //		return "managePlayers"; 
 //	}
 
+	@GetMapping("createPlayer.do")
+	public String showCreatePlayerForm() {
+
+		return "createPlayer";
+	}
+
 	@PostMapping("createPlayer.do")
 	public String createPlayer(Player player, RedirectAttributes redirectAttributes) {
 		playerDAO.createPlayer(player);
