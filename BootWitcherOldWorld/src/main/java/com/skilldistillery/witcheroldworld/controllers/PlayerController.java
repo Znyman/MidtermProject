@@ -39,7 +39,8 @@ public class PlayerController {
 	}
 
 	@GetMapping("playerAdded.do")
-	public String playerCreated(Player player) {
+	public String playerCreated(Player player, RedirectAttributes redirectAttributes) {
+		redirectAttributes.addFlashAttribute("player", player);
 
 		return "redirect:intro.do";
 	}
@@ -64,7 +65,8 @@ public class PlayerController {
 	}
 
 	@GetMapping("intro.do")
-	public String startGame() {
+	public String startGame(Model model, Player player) {
+		model.addAttribute("player", player);
 
 		return "introduction";
 	}

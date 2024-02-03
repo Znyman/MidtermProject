@@ -25,7 +25,7 @@ public class InventoryController {
 	private ArmorDAO armorDAO;
 
 	@GetMapping("manageInventory.do")
-	public String getAllWeapons(Model model, int playerId) {
+	public String getAllInventory(@RequestParam("playerId")int playerId, Model model) {
 		List<Weapon> weaponsInventory = weaponDAO.findAll(playerId);
 		model.addAttribute("weapons", weaponsInventory);
 		List<Armor> armorsInventory = armorDAO.findAll(playerId);
