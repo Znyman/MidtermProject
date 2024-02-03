@@ -34,6 +34,8 @@ public class PlayerController {
 	@PostMapping("createPlayer.do")
 	public String createPlayer(Player player, RedirectAttributes redirectAttributes) {
 		Player managedPlayer = playerDAO.createPlayer(player);
+		System.out.println(managedPlayer.getExperienceLevel());
+
 		redirectAttributes.addFlashAttribute("player", managedPlayer);
 		redirectAttributes.addFlashAttribute("updateMessage", "Player added successfully!");
 		return "redirect:playerAdded.do";
@@ -49,7 +51,6 @@ public class PlayerController {
 	@PostMapping("updatePlayer.do")
 	public String updatePlayer(Player player, Model model) {
 		Player managedPlayer = playerDAO.updatePlayer(player);
-		System.out.println(managedPlayer.getExperienceLevel());
 		model.addAttribute("player", managedPlayer);
 		model.addAttribute("updateMessage", "Your player has been updated successfully.");
 		return "showPlayer";
