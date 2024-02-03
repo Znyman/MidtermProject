@@ -29,7 +29,7 @@
         </c:otherwise>
     </c:choose>
 <br>
-<form action="createPlayer.do" method="GET">
+<form action="createPlayer.do" method="POST">
 <input type="submit" value="Create Player">
 </form><br>
 <form action="playGame.do" method="GET">
