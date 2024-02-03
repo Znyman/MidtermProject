@@ -13,6 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.skilldistillery.witcheroldworld.data.ArmorDAO;
 import com.skilldistillery.witcheroldworld.data.WeaponDAO;
 import com.skilldistillery.witcheroldworld.entities.Armor;
+import com.skilldistillery.witcheroldworld.entities.Player;
 import com.skilldistillery.witcheroldworld.entities.Weapon;
 
 @Controller
@@ -25,16 +26,18 @@ public class InventoryController {
 	private ArmorDAO armorDAO;
 
 	@GetMapping("manageInventory.do")
-	public String getAllInventory(@RequestParam("playerId") int playerId, Model model) {
-		List<Weapon> weaponsInventory = weaponDAO.findAll(playerId);
+	public String getAllInventory(Player player, Model model) {
+		model.addAttribute("player", player);
+		List<Weapon> weaponsInventory = weaponDAO.findAll(player.getId());
 		model.addAttribute("weapons", weaponsInventory);
-		List<Armor> armorsInventory = armorDAO.findAll(playerId);
+		List<Armor> armorsInventory = armorDAO.findAll(player.getId());
 		model.addAttribute("armors", armorsInventory);
 		return "manageInventory";
 	}
 
 	@GetMapping("newWeapon.do")
-	public String showCreateWeaponForm() {
+	public String showCreateWeaponForm(Player player, Model model) {
+		model.addAttribute("player", player);
 
 		return "createWeapon";
 	}
@@ -73,7 +76,8 @@ public class InventoryController {
 	}
 
 	@GetMapping("newArmor.do")
-	public String showCreateArmorForm() {
+	public String showCreateArmorForm(Player player, Model model) {
+		model.addAttribute("player", player);
 
 		return "createArmor";
 	}
