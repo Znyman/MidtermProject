@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `player` (
   `current_health` INT NOT NULL,
   `max_health` INT NOT NULL,
   `experience_level` INT NOT NULL,
-  `image_url` TEXT NOT NULL,
+  `image_url` TEXT NULL,
   `location_id` INT NOT NULL,
   `user_id` INT NOT NULL,
   PRIMARY KEY (`id`),
