@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `player` (
   `max_health` INT NOT NULL,
   `experience_level` INT NOT NULL,
   `image_url` TEXT NULL,
-  `location_id` INT NOT NULL,
+  `location_id` INT NOT NULL DEFAULT 1,
   `user_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_player_location1_idx` (`location_id` ASC),
