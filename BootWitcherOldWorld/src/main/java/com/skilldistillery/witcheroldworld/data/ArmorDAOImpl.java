@@ -45,7 +45,7 @@ private EntityManager em;
 
 	@Override
 	public List<Armor> findAll(int playerId) {
-		String jpql = "SELECT armor FROM Armor armor WHERE player_id = :player_id";
+		String jpql = "SELECT armor FROM Armor armor WHERE armor.player.id = :player_id";
 		List<Armor> armors = em.createQuery(jpql, Armor.class).setParameter("player_id", playerId).getResultList();
 		return armors;
 	}
