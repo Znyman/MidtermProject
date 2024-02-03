@@ -50,4 +50,10 @@ public class WeaponDAOImpl implements WeaponDAO {
 		return weapons;
 	}
 
+	@Override
+	public Weapon findById(int id) {
+		Weapon weapon = em.find(Weapon.class, id);
+		return weapon;
+	}
+
 }
