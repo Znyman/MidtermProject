@@ -32,7 +32,7 @@
 
 						<input type="hidden" name="id" value="${weapon.id}">
 						<label for="name"><em>What would you like to rename this weapon to?</em></label>
-						<input type="text" id="name" name="name" value="Library">
+						<input type="text" id="name" name="name">
 						<br>
 						<label for="description"><em>What would you like to say about the description of this weapon?</em></label>
 						<input type="text" id="description" name="description">
@@ -41,7 +41,7 @@
 						<input type="range" id="damage" name="damage" min="1" max="5">
 						<br>
 						<label for="tier"><em>What tier is this weapon now?</em></label>
-						<input type="number" id="tier" name="tier">
+						<input type="range" id="tier" name="tier" min="1" max="3">
 						<br>
 					</form>
 					<form action="deleteWeapon.do" method="POST">
