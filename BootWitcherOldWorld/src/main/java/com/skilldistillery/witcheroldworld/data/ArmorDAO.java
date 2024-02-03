@@ -9,7 +9,7 @@ public interface ArmorDAO {
 	Armor createArmor(Armor armor);
 	Armor updateArmor(Armor armor);
 	boolean deleteArmor(int id);
-	List<Armor> findAll(Armor armor);
+	List<Armor> findAll(int playerId);
 	
 	
 	

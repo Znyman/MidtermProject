@@ -9,6 +9,6 @@ public interface WeaponDAO {
 	Weapon createWeapon(Weapon weapon);
 	Weapon updateWeapon(Weapon weapon);
 	boolean deleteWeapon(int id);
-	List<Weapon> findAll(Weapon weapon);
+	List<Weapon> findAll(int playerId);
 	
 }

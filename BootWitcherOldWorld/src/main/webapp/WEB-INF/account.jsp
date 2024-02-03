@@ -7,11 +7,14 @@
 <meta charset="UTF-8">
 <title>User Account Details</title>
 </head>
+ 	<jsp:include page="nav.jsp" />
 <center>
 <img src="https://oc3dmedia.s3.eu-west-2.amazonaws.com/2022/12/the-witchers-3-best-graphics-mod-may-be-added-to-the-games-next-gen-version_6398bbd636f38.jpeg">
 </center>
 <h2>User Account Details:</h2><br>
 <body>
+ 	<br>
+ 
  <c:choose>
         <c:when test="${loginUser!=null}">
             <p>User id: <c:out value="${loginUser.username}"></c:out></p>
@@ -26,13 +29,11 @@
         </c:otherwise>
     </c:choose>
 <br>
+<form action="createPlayer.do" method="GET">
+<input type="submit" value="Create Player">
+</form><br>
 <form action="playGame.do" method="GET">
 <input type="submit" value="Play Game">
-
 </form><br>
-<form action="logout.do" method="GET">
-<input type="submit" value="Logout">
-</form>
-
 </body>
 </html>
