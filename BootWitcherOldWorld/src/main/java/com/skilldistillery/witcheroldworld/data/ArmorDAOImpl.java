@@ -50,4 +50,10 @@ private EntityManager em;
 		return armors;
 	}
 
+	@Override
+	public Armor findById(int id) {
+		Armor armor = em.find(Armor.class, id);
+		return armor;
+	}
+
 }
