@@ -44,7 +44,7 @@
 						<input type="number" id="tier" name="tier">
 						<br>
 					</form>
-					<form action="DeleteArmor.do" method="POST">
+					<form action="deleteArmor.do" method="POST">
 						<input type="hidden" name="id" value="${armor.id}" />
 						<input type="submit" value="Delete Armor" />
 					</form>
