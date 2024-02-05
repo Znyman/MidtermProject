@@ -8,6 +8,7 @@
 <title>Weapon Details</title>
 </head>
 <body>
+	<jsp:include page="nav.jsp" />
 	<div>
 		<c:if test="${not empty updateMessage}">
 			<h1>${updateMessage}</h1>

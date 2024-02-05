@@ -2,6 +2,7 @@ package com.skilldistillery.witcheroldworld.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -25,7 +26,7 @@ public class UserController {
 	@GetMapping(path = "login.do")
 	public String loginGet(HttpSession session) {
 		if (session.getAttribute("loginUser") != null) {
-			return "account";
+			return "redirect:playerSession.do";
 		}
 		return "home";
 	}
@@ -37,7 +38,7 @@ public class UserController {
 			if (loginUser.getUsername().equals(user.getUsername())) {
 				if (loginUser.getPassword().equals(user.getPassword())) {
 					session.setAttribute("loginUser", loginUser);
-					return "account";
+					return "redirect:playerSession.do";
 				}
 			}
 		}
@@ -51,20 +52,23 @@ public class UserController {
 	}
 	
 	@PostMapping(path = "createAccount.do")
-	public String createUser(User user, RedirectAttributes redirect) {
+	public String createUser(User user, RedirectAttributes redirect, HttpSession session) {
 		User managedUser = userDAO.create(user);
 		redirect.addFlashAttribute("loginUser", managedUser);
+		session.setAttribute("loginUser", managedUser);
 		return "redirect:userCreated.do";
 	}
 	
 	@GetMapping(path = "userCreated.do")
-	public String userCreated(User user) {
-		return "account";
+	public String userCreated(HttpSession session) {
+		return "redirect:playerSession.do";
 	}
 	
 	@GetMapping(path = "account.do")
-	public String goToAccountPage() {
-		return "account";
+	public String goToAccountPage(HttpSession session, Model model) {
+		User loginUser = (User) session.getAttribute("loginUser");
+		model.addAttribute("loginUser", loginUser);
+		return "redirect:playerSession.do";
 	}
 	
 }
