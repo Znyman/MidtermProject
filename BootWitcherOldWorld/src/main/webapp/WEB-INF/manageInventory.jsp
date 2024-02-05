@@ -77,13 +77,24 @@
             <p>No armor found.</p>
         </c:otherwise>
     </c:choose><br>
-    <p>You have ${player.experienceLevel} experience which means you can craft ${player.experienceLevel} pieces of gear before heading out on your next journey!</p>
+    <p>You have ${player.experienceLevel} upgrade points which means you can craft ${player.experienceLevel} pieces of gear before heading out on your next journey!</p>
+    <c:if test="${player.experienceLevel > 0}">
     <form action="newArmor.do" method="GET">
         <input type="submit" class="btn btn-primary" value="Create Armor">
     </form>
     <form action="newWeapon.do" method="GET">
         <input type="submit" class="btn btn-secondary" value="Create Weapon">
     </form>
+</c:if>
+
+<c:if test="${player.experienceLevel <= 0}">
+    <p>Battle more monsters to gain upgrade points!</p><br>
+ 			<form action="playGame.do" method="GET">
+            <input type="submit" class="btn btn-success" value="Play Game">
+        </form>
+
+</c:if>
+    
 </div>
 <!-- Optional JavaScript; choose one of the two! -->
 <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
