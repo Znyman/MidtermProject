@@ -58,6 +58,13 @@ public class InventoryController {
 		return "showWeapon";
 	}
 
+	@GetMapping("getWeapon.do")
+	public String getWeapon(@RequestParam("id") int id, Model model) {
+		Weapon managedWeapon = weaponDAO.findById(id);
+		model.addAttribute("weapon", managedWeapon);
+		return "showWeapon";
+	}
+
 	@PostMapping("updateWeapon.do")
 	public String updateWeapon(Weapon weapon, Model model) {
 		Weapon managedWeapon = weaponDAO.updateWeapon(weapon);
@@ -95,6 +102,13 @@ public class InventoryController {
 	@GetMapping("armorAdded.do")
 	public String armorCreated(Armor armor) {
 
+		return "showArmor";
+	}
+
+	@GetMapping("getArmor.do")
+	public String getArmor(@RequestParam("id") int id, Model model) {
+		Armor managedArmor = armorDAO.findById(id);
+		model.addAttribute("armor", managedArmor);
 		return "showArmor";
 	}
 
