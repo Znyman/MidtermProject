@@ -24,6 +24,8 @@ public class Monster {
 	private int damage;
 	@Column(name = "experience_reward")
 	private int experienceReward;
+	@Column(name = "image_url")
+	private String imageUrl;
 	@ManyToMany
 	@JoinTable(name = "monster_location", 
 	joinColumns = @JoinColumn(name = "monster_id"), 
@@ -81,6 +83,14 @@ public class Monster {
 
 	public void setLocations(List<Location> locations) {
 		this.locations = locations;
+	}
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
 	}
 
 	public void addLocation(Location location) {
