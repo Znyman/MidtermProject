@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `player` (
   `experience_level` INT NOT NULL,
   `image_url` TEXT NULL,
   `location_id` INT NULL DEFAULT 1,
-  `user_id` INT NULL,
+  `user_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_player_location1_idx` (`location_id` ASC),
   INDEX `fk_player_user1_idx` (`user_id` ASC),
@@ -215,7 +215,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `witcherdb`;
-INSERT INTO `armor` (`id`, `name`, `defense`, `description`, `tier`, `player_id`) VALUES (1, 'leather boots', 1, 'worn leather boots from Witcher training', 1, 1);
+INSERT INTO `armor` (`id`, `name`, `defense`, `description`, `tier`, `player_id`) VALUES (1, 'leather boots', 1, 'worn leather boots from witcher training', 1, 1);
 
 COMMIT;
 

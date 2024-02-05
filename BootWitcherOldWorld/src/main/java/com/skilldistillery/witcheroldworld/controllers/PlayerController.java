@@ -50,6 +50,18 @@ public class PlayerController {
 		return "redirect:intro.do";
 	}
 
+	@GetMapping("playerSession.do")
+	public String setPlayerSession(HttpSession session, Model model) {
+		User currentUser = (User) session.getAttribute("loginUser");
+		Player currentPlayer = playerDAO.findByUserId(currentUser.getId());
+
+		if (currentPlayer != null) {
+			model.addAttribute("player", currentPlayer);
+			session.setAttribute("player", currentPlayer);
+		}
+		return "account";
+	}
+
 	@PostMapping("updatePlayer.do")
 	public String updatePlayer(Player player, Model model, HttpSession session) {
 		Player managedPlayer = playerDAO.updatePlayer(player);

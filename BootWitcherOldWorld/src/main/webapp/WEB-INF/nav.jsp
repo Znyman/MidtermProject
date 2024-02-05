@@ -4,11 +4,11 @@
 <nav>
     <ul>
         <li><a href="home.do">Home</a></li>
-        <c:if test="${not empty loginUser}">
+        <c:if test="${not empty sessionScope.loggedInUser}">
             <li><a href="account.do">Account</a></li>
             <li><a href="logout.do">Logout</a></li>
         </c:if>
-        <c:if test="${empty loginUser}">
+        <c:if test="${empty sessionScope.loggedInUser}">
             <li><a href="login.do">Login</a></li>
         </c:if>
     </ul>
