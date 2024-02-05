@@ -77,7 +77,7 @@ public class PlayerController {
 		return "showPlayer";
 	}
 
-	@GetMapping("deletePlayer.do")
+	@PostMapping("deletePlayer.do")
 	public String deletePlayer(@RequestParam("id") int id, Model model) {
 		boolean isDeleted = playerDAO.deletePlayer(id);
 		if (isDeleted) {
