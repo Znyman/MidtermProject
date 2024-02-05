@@ -1,9 +1,6 @@
 package com.skilldistillery.witcheroldworld.data;
 
-import java.util.List;
-
 import org.springframework.stereotype.Service;
-
 
 import com.skilldistillery.witcheroldworld.entities.Player;
 
@@ -59,9 +56,8 @@ public class PlayerDAOImpl implements PlayerDAO {
 
 	@Override
 	public Player findByUserId(int userId) {
-		String jpql = "SELECT player FROM Player player WHERE player.userId = :userId";
+		String jpql = "SELECT player FROM Player player WHERE player.user.id = :userId";
 		Player player = em.createQuery(jpql, Player.class).setParameter("userId", userId).getSingleResult();
-		
 		return player;
 	}
 
