@@ -44,10 +44,15 @@
 						<label for="tier"><em>What tier is this weapon now?</em></label>
 						<input type="range" id="tier" name="tier" min="1" max="3">
 						<br>
+						<input type="submit" value="Update Weapon" />
 					</form>
 					<form action="deleteWeapon.do" method="POST">
 						<input type="hidden" name="id" value="${weapon.id}" />
 						<input type="submit" value="Delete Weapon" />
+					</form>
+					<form action="manageInventory.do" method="GET">
+						<input type="hidden" name="playerId" value="${player.id}">
+						<input type="submit" value="Manage Inventory">
 					</form>
 				</div>
 			</c:when>
