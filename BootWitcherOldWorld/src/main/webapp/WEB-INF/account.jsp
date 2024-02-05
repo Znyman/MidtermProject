@@ -65,8 +65,11 @@
             <c:when test="${player!=null}">
         <form action="showPlayer.do" method="GET">
             <input type="submit" class="btn btn-secondary" value="Show Player">
-        </form>
+        </form><br>
            
+        <form action="playGame.do" method="GET">
+            <input type="submit" class="btn btn-success" value="Play Game">
+        </form>
             </c:when>
             <c:otherwise>
         <form action="createPlayer.do" method="GET">
@@ -77,9 +80,6 @@
         </c:choose>
         
         
-        <form action="playGame.do" method="GET">
-            <input type="submit" class="btn btn-success" value="Play Game">
-        </form>
     </div>
     <!-- Optional JavaScript and Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
