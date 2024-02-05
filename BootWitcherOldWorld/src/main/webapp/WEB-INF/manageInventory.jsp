@@ -57,6 +57,7 @@
         <c:when test="${not empty weapons}">
             <c:forEach var="weapon" items="${weapons}">
                 Equipped Weapon: <a href="getWeapon.do?id=${weapon.id}">${weapon.name}</a><br>
+         Description: ${weapon.description} <br><br>
             </c:forEach>
         </c:when>
         <c:otherwise>
@@ -69,6 +70,7 @@
         <c:when test="${not empty armors}">
             <c:forEach var="armor" items="${armors}">
                 Equipped Armor: <a href="getArmor.do?id=${armor.id}">${armor.name}</a><br>
+          Description: ${armor.description} <br><br>
             </c:forEach>
         </c:when>
         <c:otherwise>
