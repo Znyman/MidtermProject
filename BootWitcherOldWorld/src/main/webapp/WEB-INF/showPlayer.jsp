@@ -50,7 +50,7 @@
 						<input type="submit" value="Delete Player" />
 					</form>
 					<form action="manageInventory.do" method="GET">
-						<input type="submit" value="Manage" />
+						<input type="submit" value="Manage Inventory" />
 					</form>
 				</div>
 			</c:when>
