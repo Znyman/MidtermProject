@@ -48,6 +48,7 @@
 </style>
 </head>
 <body>
+<jsp:include page="nav.jsp" />
 <div class="container">
     <img src="https://cdna.artstation.com/p/assets/images/images/021/653/600/large/vitaliy-vatsko-2.jpg?1572463828" alt="Inventory Image">
     <h2>Manage Inventory</h2>
