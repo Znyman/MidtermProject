@@ -33,8 +33,8 @@ public class LocationController {
 		switch (currentLocation.getName()) {
 		case "Kaer Seren":
 			return "kaerSeren";
-		case "Castle":
-			return "/castle";
+		case "Hengfors":
+			return "hengfors";
 		default:
 			return "kaerSeren";
 		}
