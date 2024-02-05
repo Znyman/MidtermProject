@@ -62,6 +62,12 @@ public class PlayerController {
 		return "account";
 	}
 
+	@GetMapping("showPlayer.do")
+	public String showPlayer(Model model, HttpSession session) {
+		model.addAttribute("player", session.getAttribute("player"));
+		return "showPlayer";
+	}
+
 	@PostMapping("updatePlayer.do")
 	public String updatePlayer(Player player, Model model, HttpSession session) {
 		Player managedPlayer = playerDAO.updatePlayer(player);
