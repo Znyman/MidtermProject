@@ -69,13 +69,8 @@
 				<img src="${location.imageUrl}">
 				<br>
 				<form action="changeLocation.do">
-					<input type="hidden" name="locationId" value="2">
-					<input type="submit" value="Go To Hengfors">
-				</form>
-				<br>
-				<form action="changeLocation.do">
-					<input type="hidden" name="locationId" value="3">
-					<input type="submit" value="Go To Novigrad">
+					<input type="hidden" name="locationId" value="1">
+					<input type="submit" value="Go To Kaer Seren">
 				</form>
 				<br>
 				<form action="changeLocation.do">
