@@ -78,9 +78,10 @@ public class PlayerController {
 	}
 
 	@PostMapping("deletePlayer.do")
-	public String deletePlayer(@RequestParam("id") int id, Model model) {
+	public String deletePlayer(@RequestParam("id") int id, Model model, HttpSession session) {
 		boolean isDeleted = playerDAO.deletePlayer(id);
 		if (isDeleted) {
+			session.removeAttribute("player");
 			model.addAttribute("updateMessage", "Player deleted successfully!");
 		} else {
 			model.addAttribute("updateMessage", "Player not found!");
