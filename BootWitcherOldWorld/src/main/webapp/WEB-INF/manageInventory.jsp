@@ -52,21 +52,27 @@
 <div class="container">
     <img src="https://cdna.artstation.com/p/assets/images/images/021/653/600/large/vitaliy-vatsko-2.jpg?1572463828" alt="Inventory Image">
     <h2>Manage Inventory</h2>
+   <!-- Check for weapons -->
     <c:choose>
-        <c:when test="${weapons !=null}">
+        <c:when test="${not empty weapons}">
             <c:forEach var="weapon" items="${weapons}">
-                <a href="getWeapon.do?id=${weapon.id}">${weapon.name}</a>
-                <br>
-            </c:forEach>
-        </c:when>
-        <c:when test="${armors !=null}">
-            <c:forEach var="armor" items="${armors}">
-                <a href="getArmor.do?id=${armor.id}">${armor.name}</a>
-                <br>
+                Equipped Weapon: <a href="getWeapon.do?id=${weapon.id}">${weapon.name}</a><br>
             </c:forEach>
         </c:when>
         <c:otherwise>
-            <p>No weapons or armor found.</p>
+            <p>No weapons found.</p>
+        </c:otherwise>
+    </c:choose>
+    
+    <!-- Check for armors -->
+    <c:choose>
+        <c:when test="${not empty armors}">
+            <c:forEach var="armor" items="${armors}">
+                Equipped Armor: <a href="getArmor.do?id=${armor.id}">${armor.name}</a><br>
+            </c:forEach>
+        </c:when>
+        <c:otherwise>
+            <p>No armor found.</p>
         </c:otherwise>
     </c:choose><br>
     <p>You have ${player.experienceLevel} experience which means you can craft ${player.experienceLevel} pieces of gear before heading out on your next journey!</p>
