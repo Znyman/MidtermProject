@@ -26,9 +26,11 @@ public class LocationController {
 			currentPlayer.setLocation(currentLocation);
 			model.addAttribute("player", currentPlayer);
 			model.addAttribute("location", currentLocation);
-			return "kaerSeren";
+			return "redirect:updatePlayerLocation.do";
 		}
 		return currentLocation.getName();
 	}
 
+	
+	
 }
