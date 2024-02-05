@@ -44,7 +44,9 @@ public class InventoryController {
 	}
 
 	@PostMapping("newWeapon.do")
-	public String addWeaponToDao(Weapon weapon, RedirectAttributes redirectAttributes) {
+	public String addWeaponToDao(Weapon weapon, HttpSession session, RedirectAttributes redirectAttributes) {
+		Player currentPlayer = (Player) session.getAttribute("player");
+		weapon.setPlayer(currentPlayer);
 		Weapon managedWeapon = weaponDAO.createWeapon(weapon);
 		redirectAttributes.addFlashAttribute("weapon", managedWeapon);
 		redirectAttributes.addFlashAttribute("updateMessage", "Weapon added successfully!");
@@ -81,7 +83,9 @@ public class InventoryController {
 	}
 
 	@PostMapping("newArmor.do")
-	public String saveArmor(Armor armor, RedirectAttributes redirectAttributes) {
+	public String saveArmor(Armor armor, HttpSession session, RedirectAttributes redirectAttributes) {
+		Player currentPlayer = (Player) session.getAttribute("player");
+		armor.setPlayer(currentPlayer);
 		Armor managedArmor = armorDAO.createArmor(armor);
 		redirectAttributes.addFlashAttribute("armor", managedArmor);
 		redirectAttributes.addFlashAttribute("updateMessage", "Armor added successfully!");
