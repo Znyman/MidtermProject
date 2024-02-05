@@ -6,6 +6,7 @@ import java.util.Objects;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -21,9 +22,9 @@ public class Location {
 	private String description;
 	@Column(name = "image_url")
 	private String imageUrl;
-	@ManyToMany(mappedBy = "locations")
+	@ManyToMany(mappedBy = "locations", fetch = FetchType.EAGER)
     private List<Monster> monsters;
-	@OneToMany(mappedBy = "location")
+	@OneToMany(mappedBy = "location", fetch = FetchType.EAGER)
 	private List<Player> players;
 
 	public Location() {
