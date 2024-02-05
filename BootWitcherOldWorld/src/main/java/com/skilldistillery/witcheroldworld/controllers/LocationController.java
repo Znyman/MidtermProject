@@ -1,3 +1,4 @@
+
 package com.skilldistillery.witcheroldworld.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,10 +33,13 @@ public class LocationController {
 
 		switch (currentLocation.getName()) {
 		case "Kaer Seren":
+			model.addAttribute("location", currentLocation);
 			return "kaerSeren";
 		case "Hengfors":
+			model.addAttribute("location", currentLocation);
 			return "hengfors";
 		default:
+			model.addAttribute("location", currentLocation);
 			return "kaerSeren";
 		}
 	}
