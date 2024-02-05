@@ -38,6 +38,9 @@ public class LocationController {
 		case "Hengfors":
 			model.addAttribute("location", currentLocation);
 			return "hengfors";
+		case "Novigrad":
+			model.addAttribute("location", currentLocation);
+			return "novigrad";
 		default:
 			model.addAttribute("location", currentLocation);
 			return "kaerSeren";
