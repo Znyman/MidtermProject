@@ -31,9 +31,12 @@ public class PlayerDAOImpl implements PlayerDAO {
 		Player managedPlayer = em.find(Player.class, player.getId());
 		managedPlayer.setName(player.getName());
 		managedPlayer.setDescription(player.getDescription());
+		managedPlayer.setCurrentHealth(player.getCurrentHealth());
 		managedPlayer.setMaxHealth(player.getMaxHealth());
+		managedPlayer.setWeapons(player.getWeapons());
+		managedPlayer.setArmors(player.getArmors());
 		managedPlayer.setExperienceLevel(player.getExperienceLevel());
-			
+		managedPlayer.setLocation(player.getLocation());
 		return managedPlayer;
 	}
 
