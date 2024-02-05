@@ -10,7 +10,7 @@ public interface PlayerDAO {
 	Player createPlayer(Player player);
 	Player updatePlayer(Player player);
 	boolean deletePlayer(int id);
-	List<Player> findAll(int userId);
-	
+//	List<Player> findAll(int userId);
+	Player findByUserId(int userId);
 	
 }

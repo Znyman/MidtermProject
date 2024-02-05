@@ -61,13 +61,21 @@
             </c:otherwise>
         </c:choose>
         
-        <form action="createPlayer.do" method="GET">
-            <input type="submit" class="btn btn-primary" value="Create Player">
-        </form>
-        
+                <c:choose>
+            <c:when test="${player!=null}">
         <form action="showPlayer.do" method="GET">
             <input type="submit" class="btn btn-secondary" value="Show Player">
         </form>
+           
+            </c:when>
+            <c:otherwise>
+        <form action="createPlayer.do" method="GET">
+            <input type="submit" class="btn btn-primary" value="Create Player">
+        </form>
+               
+            </c:otherwise>
+        </c:choose>
+        
         
         <form action="playGame.do" method="GET">
             <input type="submit" class="btn btn-success" value="Play Game">

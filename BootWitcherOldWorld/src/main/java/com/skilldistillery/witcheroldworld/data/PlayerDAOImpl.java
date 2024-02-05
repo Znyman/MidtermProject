@@ -50,11 +50,21 @@ public class PlayerDAOImpl implements PlayerDAO {
 		return true;
 	}
 
+//	@Override
+//	public List<Player> findAll(int userId) {
+//		String jpql = "SELECT player FROM Player player WHERE player.userId = :userId";
+//		List<Player> players = em.createQuery(jpql, Player.class).setParameter("userId", userId).getResultList();
+//		return players;
+//	}
+
 	@Override
-	public List<Player> findAll(int userId) {
-		String jpql = "SELECT player FROM Player player WHERE user_id = :user_id";
-		List<Player> players = em.createQuery(jpql, Player.class).setParameter("user_id", userId).getResultList();
-		return players;
+	public Player findByUserId(int userId) {
+		String jpql = "SELECT player FROM Player player WHERE player.userId = :userId";
+		Player player = em.createQuery(jpql, Player.class).setParameter("userId", userId).getSingleResult();
+		
+		return player;
 	}
 
+	
+	
 }
