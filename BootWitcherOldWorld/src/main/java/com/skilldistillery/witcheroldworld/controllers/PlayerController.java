@@ -4,13 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.witcheroldworld.data.PlayerDAO;
 import com.skilldistillery.witcheroldworld.entities.Player;
+import com.skilldistillery.witcheroldworld.entities.User;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class PlayerController {
@@ -26,31 +28,32 @@ public class PlayerController {
 //	}
 
 	@GetMapping("createPlayer.do")
-	public String showCreatePlayerForm() {
-
+	public String showCreatePlayerForm(HttpSession session, Model model) {
+		User loginUser = (User) session.getAttribute("loginUser");
+		model.addAttribute("loginUser", loginUser);
 		return "createPlayer";
 	}
 
 	@PostMapping("createPlayer.do")
-	public String createPlayer(Player player, RedirectAttributes redirectAttributes) {
+	public String createPlayer(Player player, RedirectAttributes redirectAttributes, HttpSession session) {
+		User currentUser = (User) session.getAttribute("loginUser");
+		player.setUser(currentUser);
 		Player managedPlayer = playerDAO.createPlayer(player);
-		System.out.println(managedPlayer.getExperienceLevel());
-
+		session.setAttribute("player", managedPlayer);
 		redirectAttributes.addFlashAttribute("player", managedPlayer);
 		redirectAttributes.addFlashAttribute("updateMessage", "Player added successfully!");
 		return "redirect:playerAdded.do";
 	}
 
 	@GetMapping("playerAdded.do")
-	public String playerCreated(@ModelAttribute("player") Player player, RedirectAttributes redirectAttributes) {
-		redirectAttributes.addFlashAttribute("player", player);
-
+	public String playerCreated() {
 		return "redirect:intro.do";
 	}
 
 	@PostMapping("updatePlayer.do")
-	public String updatePlayer(Player player, Model model) {
+	public String updatePlayer(Player player, Model model, HttpSession session) {
 		Player managedPlayer = playerDAO.updatePlayer(player);
+		session.setAttribute("player", managedPlayer);
 		model.addAttribute("player", managedPlayer);
 		model.addAttribute("updateMessage", "Your player has been updated successfully.");
 		return "showPlayer";
@@ -68,9 +71,7 @@ public class PlayerController {
 	}
 
 	@GetMapping("intro.do")
-	public String startGame(@ModelAttribute("player") Player player, Model model) {
-		model.addAttribute("player", player);
-
+	public String startGame() {
 		return "introduction";
 	}
 }
