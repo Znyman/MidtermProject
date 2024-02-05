@@ -8,6 +8,7 @@
 <title>Create Player</title>
 </head>
 <body>
+	<jsp:include page="nav.jsp" />
 	<c:choose>
 		<c:when test="${loginUser!=null}">
 			<h2>Create Player</h2>
@@ -20,7 +21,8 @@
 				<br>
 				<label for="imageUrl">If you would like to have an image for your character, put in a URL to your preffered image:</label>
 				<input type="text" id="imageUrl" name="imageUrl">
-				<br> <input type="hidden" name="role" value="player">
+				<br>
+				<input type="hidden" name="role" value="player">
 				<input type="hidden" name="currentHealth" value="20">
 				<input type="hidden" name="maxHealth" value="20">
 				<input type="hidden" name="experienceLevel" value="3">

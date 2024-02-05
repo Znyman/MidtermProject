@@ -8,6 +8,7 @@
 <title>Create Armor</title>
 </head>
 <body>
+	<jsp:include page="nav.jsp" />
 	<div>
 		<c:choose>
 		<c:when test="${player.experienceLevel > 0}">
@@ -24,7 +25,7 @@
 				<input type="range" id="defense" name="defense" min="1" max="5">
 				<br>
 				<label for="tier"><em>What tier is this armor?</em></label>
-				<input type="number" id="tier" name="tier" min="1" max="3">
+				<input type="range" id="tier" name="tier" min="1" max="3">
 				<br>
 				<input type="submit" class="btn btn-primary" value="Add Armor">
 			</form>

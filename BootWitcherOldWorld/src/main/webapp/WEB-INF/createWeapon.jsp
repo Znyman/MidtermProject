@@ -8,6 +8,7 @@
 <title>Create Weapon</title>
 </head>
 <body>
+	<jsp:include page="nav.jsp" />
 	<div>
 		<c:choose>
 		<c:when test="${player.experienceLevel > 0}">
