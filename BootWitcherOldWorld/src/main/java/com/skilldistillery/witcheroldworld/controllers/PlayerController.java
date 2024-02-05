@@ -54,6 +54,7 @@ public class PlayerController {
 	public String setPlayerSession(HttpSession session, Model model) {
 		User currentUser = (User) session.getAttribute("loginUser");
 		Player currentPlayer = playerDAO.findByUserId(currentUser.getId());
+		System.out.println(currentPlayer);
 
 		if (currentPlayer != null) {
 			model.addAttribute("player", currentPlayer);
