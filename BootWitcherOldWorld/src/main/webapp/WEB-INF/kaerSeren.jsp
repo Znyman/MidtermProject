@@ -66,21 +66,25 @@
 			<div class="col-sm">
 				Current Location: ${location.name}
 				<br>
-				<img src="https://preview.redd.it/q7jujbxva7w21.jpg?width=1536&format=pjpg&auto=webp&s=469929c701dfd8fb17f2a8841945c635d9aa545f">
+				<img src="${location.imageUrl}">
 				<br>
-				<form action="goToHengfors.do">
+				<form action="changeLocation.do">
+					<input type="hidden" name="locationId" value="2">
 					<input type="submit" value="Go To Hengfors">
 				</form>
 				<br>
-				<form action="goToNovigrad.do">
+				<form action="changeLocation.do">
+					<input type="hidden" name="locationId" value="6">
 					<input type="submit" value="Go To Novigrad">
 				</form>
 				<br>
-				<form action="goToCidaris.do">
+				<form action="changeLocation.do">
+					<input type="hidden" name="locationId" value="5">
 					<input type="submit" value="Go To Cidaris">
 				</form>
 				<br>
-				<form action="goToCintra.do">
+				<form action="changeLocation.do">
+					<input type="hidden" name="locationId" value="9">
 					<input type="submit" value="Go To Cintra">
 				</form>
 			</div>
