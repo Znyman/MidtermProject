@@ -107,6 +107,6 @@ public class PlayerController {
 	public String updatePlayerLocation(HttpSession session) {
 		Player player = (Player) session.getAttribute("player");
 		player = playerDAO.updatePlayer(player);
-		return "playGame.do";
+		return "redirect:playGame.do";
 	}
 }
