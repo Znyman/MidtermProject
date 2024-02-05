@@ -94,4 +94,13 @@ public class PlayerController {
 	public String startGame() {
 		return "introduction";
 	}
+
+	@PostMapping("subtractExperience.do")
+	public String experienceUpdate(HttpSession session) {
+		Player managedPlayer = (Player) session.getAttribute("player");
+		managedPlayer.setExperienceLevel(managedPlayer.getExperienceLevel() - 1);
+
+		managedPlayer = playerDAO.updatePlayer(managedPlayer);
+		return "manageInventory.do";
+	}
 }

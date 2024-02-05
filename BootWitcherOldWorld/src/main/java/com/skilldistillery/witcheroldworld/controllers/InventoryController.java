@@ -54,8 +54,9 @@ public class InventoryController {
 	}
 
 	@GetMapping("weaponAdded.do")
-	public String weaponCreated(Weapon weapon) {
-		return "showWeapon";
+	public String weaponCreated() {
+
+		return "redirect:subtractExperience.do";
 	}
 
 	@GetMapping("getWeapon.do")
@@ -100,9 +101,9 @@ public class InventoryController {
 	}
 
 	@GetMapping("armorAdded.do")
-	public String armorCreated(Armor armor) {
+	public String armorCreated() {
 
-		return "showArmor";
+		return "redirect:subtractExperience.do";
 	}
 
 	@GetMapping("getArmor.do")
@@ -130,4 +131,5 @@ public class InventoryController {
 		}
 		return "showArmor";
 	}
+
 }
