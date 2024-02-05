@@ -9,38 +9,41 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        body {
-            background-color: #0e0e10;
-            color: #d4d4d2;
-            font-family: 'Times New Roman', Times, serif;
-        }
-        h2, p {
-            color: #c5b358;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 5px;
-        }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            padding-top: 20px;
-        }
-        .form-control, .btn {
-            margin-top: 10px;
-        }
-        /* Nav styling */
-        .navbar-custom {
-            background-color: #004445; /* Dark green background */
-        }
-        .navbar-custom .navbar-brand, 
-        .navbar-custom .navbar-nav .nav-link {
-            color: #d4d4d2; /* Light gray text */
-        }
-        .navbar-custom .navbar-nav .nav-link:hover {
-            color: #f4b942; /* Witcher medallion gold for hover */
-        }
+    body {
+        background-color: #0e0e10;
+        color: #d4d4d2;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    h2, p, a {
+        color: #c5b358; /* Witcher gold */
+    }
+    img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 5px;
+        margin-top: 20px;
+    }
+    .container {
+        max-width: 800px;
+        margin: auto;
+        padding-top: 20px;
+        text-align: center; 
+    }
+    .btn-primary, .btn-secondary {
+        margin-top: 10px;
+        background-color: #004445; /* Dark green background */
+        border: none;
+    }
+    .btn-primary:hover, .btn-secondary:hover {
+        background-color: #f4b942; /* Witcher medallion gold for hover */
+    }
+    a {
+        color: #d4d4d2;
+        text-decoration: none;
+    }
+    a:hover {
+        color: #f4b942;
+    }
     </style>
 </head>
 <body>
