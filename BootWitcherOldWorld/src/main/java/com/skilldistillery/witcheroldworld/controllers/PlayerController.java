@@ -54,7 +54,6 @@ public class PlayerController {
 	public String setPlayerSession(HttpSession session, Model model) {
 		User currentUser = (User) session.getAttribute("loginUser");
 		Player currentPlayer = playerDAO.findByUserId(currentUser.getId());
-		System.out.println(currentPlayer);
 
 		if (currentPlayer != null) {
 			model.addAttribute("player", currentPlayer);
@@ -102,5 +101,12 @@ public class PlayerController {
 
 		managedPlayer = playerDAO.updatePlayer(managedPlayer);
 		return "redirect:manageInventory.do";
+	}
+
+	@GetMapping("updatePlayerLocation.do")
+	public String updatePlayerLocation(HttpSession session) {
+		Player player = (Player) session.getAttribute("player");
+		player = playerDAO.updatePlayer(player);
+		return "playGame.do";
 	}
 }
