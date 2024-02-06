@@ -22,10 +22,10 @@
 				<input type="text" id="description" name="description" value="Sturdy bracers from the Witcher Academy" required>
 				<br>
 				<label for="defense"><em>How much defense does this armor have?</em></label>
-				<input type="range" id="defense" name="defense" min="1" max="5">
+				<input type="range" id="defense" name="defense" min="1" max="2">
 				<br>
 				<label for="tier"><em>What tier is this armor?</em></label>
-				<input type="range" id="tier" name="tier" min="1" max="3">
+				<input type="range" id="tier" name="tier" min="1" max="2">
 				<br>
 				<input type="submit" class="btn btn-primary" value="Add Armor">
 			</form>
