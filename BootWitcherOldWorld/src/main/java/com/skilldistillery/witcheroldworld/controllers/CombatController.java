@@ -95,7 +95,7 @@ public class CombatController {
 
 		session.setAttribute("player", currentPlayer);
 
-		return "Kaer Seren";
+		return "kaerSeren";
 	}
 
 }
