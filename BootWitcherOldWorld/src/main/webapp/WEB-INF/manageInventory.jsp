@@ -84,10 +84,10 @@
     </form>
     <form action="newWeapon.do" method="GET">
         <input type="submit" class="btn btn-secondary" value="Create Weapon">
-    </form>
+    </form><br><br>
 </c:if>
 
-<c:if test="${player.experienceLevel <= 0}">
+<c:if test="${weapons != null}">
     <p>Battle more monsters to gain upgrade points!</p><br>
  			<form action="playGame.do" method="GET">
             <input type="submit" class="btn btn-success" value="Play Game">
