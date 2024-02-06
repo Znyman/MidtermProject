@@ -91,7 +91,7 @@
     <p>Battle more monsters to gain upgrade points!</p><br>
  			<form action="playGame.do" method="GET">
             <input type="submit" class="btn btn-success" value="Play Game">
-        </form>
+        </form><br>
 
 </c:if>
     
