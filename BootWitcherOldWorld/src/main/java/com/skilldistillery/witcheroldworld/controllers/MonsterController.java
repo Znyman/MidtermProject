@@ -29,7 +29,15 @@ public class MonsterController {
 		List<Weapon> weapons = currentPlayer.getWeapons();
 		List<Armor> armors = currentPlayer.getArmors();
 		
-		Monster monster = monsterDAO.findById(currentLocation.getId());
+		Monster monster = new Monster();
+		Monster monsterToCopy = monsterDAO.findById(currentLocation.getId());
+		monster.setDamage(monsterToCopy.getDamage());
+		monster.setDescription(monsterToCopy.getDescription());
+		monster.setExperienceReward(monsterToCopy.getExperienceReward());
+		monster.setHealth(monsterToCopy.getHealth());
+		monster.setImageUrl(monsterToCopy.getImageUrl());
+		monster.setLocations(monsterToCopy.getLocations());
+		monster.setName(monsterToCopy.getName());
 		monster.setPlayer(currentPlayer);
 		monster = monsterDAO.createMonster(monster);
 		
