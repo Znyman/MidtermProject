@@ -42,4 +42,10 @@ public class MonsterDAOImpl implements MonsterDAO {
 		return true;
 	}
 
+	@Override
+	public Monster createMonster(Monster monster) {
+		em.persist(monster);
+		return monster;
+	}
+
 }
