@@ -60,10 +60,11 @@
 </head>
 <body>
 <jsp:include page="nav.jsp" />
-
+<div class="container">
+<br>
 <h2>Your health has reached zero.</h2><br>
-<h3>You managed to escape back to the Witcher Academy from which you started.</h3>
-<h3>Take some time and heal before your next battle.</h3>
+<h4>You managed to escape back to the Witcher Academy from which you started.</h4>
+<h4>Take some time and heal before your next battle.</h4>
 <form action ="meditate.do" method = "POST">
 <input type="submit" class="btn btn-success" value="Meditate">
 </form>
@@ -71,7 +72,7 @@
 <img src = "https://i.redd.it/8aiogcy6rukz.jpg">
 
 
-
+</div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.6/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

@@ -16,7 +16,7 @@ public class PlayerDAOImpl implements PlayerDAO {
 
 	@Override
 	public Player findById(int id) {
-		Player player = em.find(Player.class,id);
+		Player player = em.find(Player.class, id);
 		return player;
 	}
 
@@ -43,7 +43,7 @@ public class PlayerDAOImpl implements PlayerDAO {
 	@Override
 	public boolean deletePlayer(int id) {
 		Player managedPlayer = em.find(Player.class, id);
-		if(managedPlayer == null) {
+		if (managedPlayer == null) {
 			return false;
 		}
 		em.remove(managedPlayer);
@@ -69,6 +69,4 @@ public class PlayerDAOImpl implements PlayerDAO {
 		return player;
 	}
 
-	
-	
 }
