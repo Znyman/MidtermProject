@@ -1,5 +1,6 @@
 package com.skilldistillery.witcheroldworld.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,9 @@ public class MonsterController {
 		List<Weapon> weapons = currentPlayer.getWeapons();
 		List<Armor> armors = currentPlayer.getArmors();
 		
+		List<Location> newLocations = new ArrayList<>();
+		newLocations.add(currentLocation);
+		
 		Monster monster = new Monster();
 		Monster monsterToCopy = monsterDAO.findById(currentLocation.getId());
 		monster.setDamage(monsterToCopy.getDamage());
@@ -36,7 +40,7 @@ public class MonsterController {
 		monster.setExperienceReward(monsterToCopy.getExperienceReward());
 		monster.setHealth(monsterToCopy.getHealth());
 		monster.setImageUrl(monsterToCopy.getImageUrl());
-		monster.setLocations(monsterToCopy.getLocations());
+		monster.setLocations(newLocations);
 		monster.setName(monsterToCopy.getName());
 		monster.setPlayer(currentPlayer);
 		monster = monsterDAO.createMonster(monster);
