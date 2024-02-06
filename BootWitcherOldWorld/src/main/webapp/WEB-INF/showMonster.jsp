@@ -7,7 +7,8 @@
 <title>Display Monster</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <style>
-    body {
+   
+	    body {
         background-color: #0e0e10;
         color: #d4d4d2;
         font-family: 'Times New Roman', Times, serif;
@@ -42,49 +43,57 @@
     a:hover {
         color: #f4b942;
     }
-</style>
 
+    .progress {
+        height: 25px;
+        background-color: #1e2125;
+    }
+    .progress-bar {
+        background-color: #c5b358; /* Witcher gold */
+    }
+    .progress-bar-striped {
+        background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    }
+</style>
 </head>
 <body>
 <jsp:include page="nav.jsp" />
 
- <div>
-        <c:if test="${not empty updateMessage}">
-            <h1>${updateMessage}</h1>
+<div class="container">
+    <c:choose>
+        <c:when test="${not empty monster}">
+            <h2>${monster.name}</h2>
             <br>
-        </c:if>
-    </div>
+            
+            <label for="healthBar">Health:</label>
+            <div class="progress">
+                <div id="healthBar" class="progress-bar progress-bar-striped" role="progressbar" style="width: ${monster.health}%" aria-valuenow="${monster.health}" aria-valuemin="0" aria-valuemax="100">${monster.health}</div>
+            </div>
+            <br>
 
-    <div>
-        <c:choose>
-            <c:when test="${not empty monster}">
-                <h2>${monster.name}</h2>
-                <br>
-                <p>Health: ${monster.health}</p>
-                <br>
-                <p>Strength: ${monster.damage}</p>
-                <br>
-                <p>Bounty: ${monster.experienceReward}</p>
-                <!-- Add more details as needed -->
-            </c:when>
-            <c:otherwise>
-                <h2>Monster not found.</h2>
-            </c:otherwise>
-        </c:choose>
-    </div>
+            <label for="damageBar">Strength:</label>
+            <div class="progress">
+                <div id="damageBar" class="progress-bar progress-bar-striped" role="progressbar" style="width: ${monster.damage}%" aria-valuenow="${monster.damage}" aria-valuemin="0" aria-valuemax="100">${monster.damage}</div>
+            </div>
+            <br>
+
+            <label for="expBar">Bounty:</label>
+            <div class="progress">
+                <div id="expBar" class="progress-bar progress-bar-striped" role="progressbar" style="width: ${monster.experienceReward}%" aria-valuenow="${monster.experienceReward}" aria-valuemin="0" aria-valuemax="100">${monster.experienceReward}</div>
+            </div>
+            <!-- Add more details as needed -->
+        </c:when>
+        <c:otherwise>
+            <h2>Monster not found.</h2>
+        </c:otherwise>
+    </c:choose>
 
     <div>
         <c:if test="${not empty monster.imageUrl}">
-            <img src="${monster.imageUrl}" alt="Monster Image" style="max-width: 100%; height: auto;">
+            <img src="${monster.imageUrl}" alt="Monster Image">
         </c:if>
     </div>
-
-
-
-
-
-
-
+</div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.6/dist/umd/popper.min.js"></script>

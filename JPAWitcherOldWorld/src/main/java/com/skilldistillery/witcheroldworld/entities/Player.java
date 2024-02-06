@@ -44,7 +44,10 @@ public class Player {
 	@OneToOne
 	@JoinColumn(name = "user_id")
 	private User user;
-
+	@OneToOne(mappedBy = "player")
+	private Monster monster;
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -131,6 +134,14 @@ public class Player {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public Monster getMonster() {
+		return monster;
+	}
+
+	public void setMonster(Monster monster) {
+		this.monster = monster;
 	}
 
 	public void addWeapon(Weapon weapon) {
