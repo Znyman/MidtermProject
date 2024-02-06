@@ -152,7 +152,7 @@ public class Player {
 
 		if (!weapons.contains(weapon)) {
 			weapons.add(weapon);
-			if (weapon.getPlayer() != null && weapon.getPlayer().equals(this)) {
+			if (weapon.getPlayer() != null && !weapon.getPlayer().equals(this)) {
 				weapon.getPlayer().removeWeapon(weapon);
 			}
 			weapon.setPlayer(this);
@@ -173,7 +173,7 @@ public class Player {
 
 		if (!armors.contains(armor)) {
 			armors.add(armor);
-			if (armor.getPlayer() != null) {
+			if (armor.getPlayer() != null  && !armor.getPlayer().equals(this)) {
 				armor.getPlayer().removeArmor(armor);
 			}
 			armor.setPlayer(this);
