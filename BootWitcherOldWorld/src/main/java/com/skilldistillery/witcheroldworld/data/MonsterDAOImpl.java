@@ -25,9 +25,11 @@ public class MonsterDAOImpl implements MonsterDAO {
 	public Monster updateMonster(Monster monster) {
 		Monster managedMonster = em.find(Monster.class, monster.getId());
 		managedMonster.setName(monster.getName());
+		managedMonster.setDescription(monster.getDescription());
 		managedMonster.setHealth(monster.getHealth());
 		managedMonster.setDamage(monster.getDamage());
 		managedMonster.setExperienceReward(monster.getExperienceReward());
+		managedMonster.setLocations(monster.getLocations());
 
 		return managedMonster;
 	}
