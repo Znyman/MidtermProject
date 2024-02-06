@@ -64,7 +64,8 @@
         <c:when test="${not empty monster}">
             <h2>${monster.name}</h2>
             <br>
-            
+            ${monster.description}
+            <br>
             <label for="healthBar">Health:</label>
             <div class="progress">
                 <div id="healthBar" class="progress-bar progress-bar-striped" role="progressbar" style="width: ${monster.health}%" aria-valuenow="${monster.health}" aria-valuemin="0" aria-valuemax="100">${monster.health}</div>
