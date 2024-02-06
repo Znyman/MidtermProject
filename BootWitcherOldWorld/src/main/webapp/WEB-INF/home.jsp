@@ -97,37 +97,37 @@
 
 </head>
 <body>
-	<jsp:include page="nav.jsp" />
+    <jsp:include page="nav.jsp" />
 
     <h2>Welcome to the Witcher Old World Game</h2>
 
-<form action="login.do" method="POST">
-    <input type="text" name="username" placeholder="Username" required>
-    <br>
-    <input type="password" name="password" placeholder="Password" required>
-    <br>
-    <input type="submit" value="Log In">
-</form>
+    <form action="login.do" method="POST">
+        <input type="text" name="username" placeholder="Username" required>
+        <br>
+        <input type="password" name="password" placeholder="Password" required>
+        <br>
+        <input type="submit" value="Log In">
+    </form>
 
-<!-- Account creation button -->
-<button class="create-account-button" onclick="toggleAccountCreation()">Create Account</button>
+    <!-- Create Account button -->
+    <button class="create-account-button" onclick="toggleAccountCreation()">Create Account</button>
 
-<!-- Account creation form -->
-<div class="account-creation-form" id="accountCreationForm" style="display: none;">
-    <jsp:include page="createAccount.jsp"/>
-</div>
+    <!-- Account creation form -->
+    <div class="account-creation-form" id="accountCreationForm">
+        <jsp:include page="createAccount.jsp"/>
+    </div>
 
-<!-- JavaScript to toggle account creation form visibility -->
-<script>
-    function toggleAccountCreation() {
-        var form = document.getElementById('accountCreationForm');
-        if (form.style.display === 'none' || form.style.display === '') {
-            form.style.display = 'block';
-        } else {
-            form.style.display = 'none';
+    <!-- JavaScript to toggle account creation form visibility -->
+    <script>
+        function toggleAccountCreation() {
+            var form = document.querySelector('.account-creation-form');
+            if (form.style.display === 'none' || form.style.display === '') {
+                form.style.display = 'block';
+            } else {
+                form.style.display = 'none';
+            }
         }
-    }
-</script>
+    </script>
 
 </body>
 </html>
