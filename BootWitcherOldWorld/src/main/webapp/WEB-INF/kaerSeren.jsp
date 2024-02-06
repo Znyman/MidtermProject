@@ -47,7 +47,7 @@
 
 </head>
 <body>
-
+	<jsp:include page="nav.jsp"/>
 	<div class="container">
 		<div class="row">
 			<div class="col-sm">Storyline Information</div>
