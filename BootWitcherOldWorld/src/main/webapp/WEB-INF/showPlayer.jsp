@@ -45,10 +45,6 @@
 						<input type="hidden" name="experienceLevel" value="${player.experienceLevel}">
 						<input type="submit" value="Update Player" />
 					</form>
-					<form action="deletePlayer.do" method="POST">
-						<input type="hidden" name="id" value="${player.id}" />
-						<input type="submit" value="Delete Player" />
-					</form>
 					<form action="manageInventory.do" method="GET">
 						<input type="submit" value="Manage Inventory" />
 					</form>
