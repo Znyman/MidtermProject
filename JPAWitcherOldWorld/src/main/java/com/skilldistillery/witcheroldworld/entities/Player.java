@@ -173,7 +173,8 @@ public class Player {
 
 		if (!armors.contains(armor)) {
 			armors.add(armor);
-			if (armor.getPlayer() != null  && !armor.getPlayer().equals(this)) {
+
+			if (armor.getPlayer() != null && !armor.getPlayer().equals(this)) {
 				armor.getPlayer().removeArmor(armor);
 			}
 			armor.setPlayer(this);
