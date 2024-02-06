@@ -25,6 +25,7 @@ public class LocationController {
 	@GetMapping("playGame.do")
 	public String startGame(HttpSession session, Model model) {
 		Player currentPlayer = (Player) session.getAttribute("player");
+		currentPlayer.setMonster(null);
 		Location currentLocation = currentPlayer.getLocation();
 		if (currentLocation == null) {
 			currentLocation = locationDao.findById(1);
