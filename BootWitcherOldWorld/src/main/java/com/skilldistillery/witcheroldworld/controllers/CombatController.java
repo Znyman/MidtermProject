@@ -45,6 +45,8 @@ public class CombatController {
 		if (currentMonster.getHealth() <= 0) {
 			currentPlayer.setExperienceLevel(
 					currentPlayer.getExperienceLevel() + currentPlayer.getMonster().getExperienceReward());
+			currentPlayer = playerDAO.updatePlayer(currentPlayer);
+			session.setAttribute("player", currentPlayer);
 			monsterDAO.deleteMonster(currentPlayer.getMonster().getId());
 			currentPlayer.setMonster(null);
 			session.removeAttribute("monster");
