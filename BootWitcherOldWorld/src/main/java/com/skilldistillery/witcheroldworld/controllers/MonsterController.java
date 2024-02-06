@@ -26,11 +26,15 @@ public class MonsterController {
 	@GetMapping("showMonster.do")
 	public String showMonster(HttpSession session, Model model) {
 		Player currentPlayer = (Player) session.getAttribute("player");
+		List<Weapon> weapons = currentPlayer.getWeapons();
+		List<Armor> armors = currentPlayer.getArmors();
+		session.setAttribute("armors", armors);
+		model.addAttribute("armors", armors);
+		session.setAttribute("weapons", weapons);
+		model.addAttribute("weapons", weapons);
 		
 		if (currentPlayer.getMonster() == null) {
 			Location currentLocation = currentPlayer.getLocation();
-			List<Weapon> weapons = currentPlayer.getWeapons();
-			List<Armor> armors = currentPlayer.getArmors();
 			
 			List<Location> newLocations = new ArrayList<>();
 			newLocations.add(currentLocation);
@@ -46,17 +50,12 @@ public class MonsterController {
 			monster.setName(monsterToCopy.getName());
 			monster.setPlayer(currentPlayer);
 			monster = monsterDAO.createMonster(monster);
-			
 			currentPlayer.setMonster(monster);
-			
-			session.setAttribute("armors", armors);
-			model.addAttribute("armors", armors);
-			session.setAttribute("weapons", weapons);
-			model.addAttribute("weapons", weapons);
-			
-			session.setAttribute("monster", monster);
-			model.addAttribute("monster", monster);
 		}
+		
+		Monster currentMonster = currentPlayer.getMonster();
+		session.setAttribute("monster", currentMonster);
+		model.addAttribute("monster", currentMonster);
 		
 		return "showMonster";
 	}
