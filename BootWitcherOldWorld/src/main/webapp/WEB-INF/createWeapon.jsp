@@ -18,7 +18,7 @@
 				<label for="name"><em>What is the name of this weapon?</em></label>
 				<input type="text" id="name" name="name" value="Viper's Sting" required>
 				<br>
-				<label for="description"><em>What would you like to say about the description of this armor?</em></label>
+				<label for="description"><em>What would you like to say about the description of this weapon?</em></label>
 				<input type="text" id="description" name="description" value="Punctures through most armor and flesh" required>
 				<br>
 				<label for="damage"><em>How much damage does this weapon have?</em></label>
