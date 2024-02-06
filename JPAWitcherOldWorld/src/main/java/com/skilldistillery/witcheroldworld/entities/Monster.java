@@ -13,6 +13,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Monster {
@@ -21,6 +22,7 @@ public class Monster {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
+	private String description;
 	private int health;
 	private int damage;
 	@Column(name = "experience_reward")
@@ -29,9 +31,12 @@ public class Monster {
 	private String imageUrl;
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "monster_location", 
-	    joinColumns = @JoinColumn(name = "monster_id"), 
-	    inverseJoinColumns = @JoinColumn(name = "location_id"))
+	joinColumns = @JoinColumn(name = "monster_id"), 
+	inverseJoinColumns = @JoinColumn(name = "location_id"))
 	private List<Location> locations;
+	@OneToOne
+	@JoinColumn(name = "player_id")
+	private Player player;
 
 	public Monster() {
 
@@ -77,7 +82,6 @@ public class Monster {
 		this.experienceReward = experienceReward;
 	}
 
-	
 	public List<Location> getLocations() {
 		return locations;
 	}
@@ -94,24 +98,32 @@ public class Monster {
 		this.imageUrl = imageUrl;
 	}
 
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	public void addLocation(Location location) {
-		if(locations == null) {
+		if (locations == null) {
 			locations = new ArrayList<>();
 		}
-		
-		if(!locations.contains(location)) {
+
+		if (!locations.contains(location)) {
 			locations.add(location);
 			location.addMonster(this);
 		}
 	}
-	
+
 	public void removeLocation(Location location) {
-		if(locations != null && locations.contains(location)) {
+		if (locations != null && locations.contains(location)) {
 			locations.remove(location);
 			location.removeMonster(this);
 		}
 	}
-	
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
