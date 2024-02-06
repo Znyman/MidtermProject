@@ -40,6 +40,9 @@ public class CombatController {
 	public String witcherAttack(@RequestParam("weaponId") int weaponId, HttpSession session, Model model) {
 		Player currentPlayer = (Player) session.getAttribute("player");
 		Weapon currentWeapon = weaponDAO.findById(weaponId);
+		if (currentWeapon == null) {
+			return "redirect:manageInventory.do";
+		}
 		Monster currentMonster = (Monster) session.getAttribute("monster");
 
 		currentMonster.setHealth(currentMonster.getHealth() - currentWeapon.getDamage());

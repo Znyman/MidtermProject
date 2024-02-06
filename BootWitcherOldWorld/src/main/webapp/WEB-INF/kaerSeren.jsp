@@ -53,8 +53,18 @@
 			<div class="col-sm">
 				Storyline Information
 				<br>
-				<form action="showMonster.do" method="GET">
-					<input type="submit" value="Fight the monster at this location" />
+				<c:choose>
+					<c:when test="${not empty player.weapons}">
+						<form action="showMonster.do" method="GET">
+							<input type="submit" value="Fight the monster at this location" />
+						</form>
+					</c:when>
+					<c:otherwise>
+						<strong>You crazy fool! You need a weapon to fight monsters!</strong>
+					</c:otherwise>
+				</c:choose>
+				<form action="meditate.do" method="POST">
+					<input type="submit" class="btn btn-success" value="Meditate">
 				</form>
 			</div>
 			<div class="col-sm">

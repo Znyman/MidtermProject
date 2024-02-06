@@ -46,10 +46,13 @@
 						<br>
 						<input type="submit" value="Update Weapon" />
 					</form>
+					<br>
+					<strong>Delete items wisely because that's your only way to win fights against monsters!</strong>
 					<form action="deleteWeapon.do" method="POST">
 						<input type="hidden" name="id" value="${weapon.id}" />
 						<input type="submit" value="Delete Weapon" />
 					</form>
+					<br>
 					<form action="manageInventory.do" method="GET">
 						<input type="hidden" name="playerId" value="${player.id}">
 						<input type="submit" value="Manage Inventory">
