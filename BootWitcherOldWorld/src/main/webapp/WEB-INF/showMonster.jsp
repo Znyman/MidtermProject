@@ -128,7 +128,7 @@
     <div class="form-group">
         <label for="weaponSelect">Choose your weapon:</label>
         <select id="weaponSelect" name="weaponId" class="form-control">
-            <c:forEach items="${weapons}" var="weapon">
+            <c:forEach items="${player.weapons}" var="weapon">
                 <option value="${weapon.id}">${weapon.name} | Weapon Damage: ${weapon.damage}</option>
             </c:forEach>
         </select>

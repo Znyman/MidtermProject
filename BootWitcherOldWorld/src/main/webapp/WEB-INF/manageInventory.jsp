@@ -61,7 +61,7 @@
             </c:forEach>
         </c:when>
         <c:otherwise>
-            <p>No weapons found.</p>
+            <p>Please forge a weapon to play the game.</p>
         </c:otherwise>
     </c:choose>
     
@@ -74,7 +74,7 @@
             </c:forEach>
         </c:when>
         <c:otherwise>
-            <p>No armor found.</p>
+            <p>Please make a piece of armor to play the game.</p>
         </c:otherwise>
     </c:choose><br>
     <p>You have ${player.experienceLevel} upgrade points which means you can craft ${player.experienceLevel} pieces of gear before heading out on your next journey!</p>
@@ -87,11 +87,11 @@
     </form><br><br>
 </c:if>
 
-<c:if test="${weapons != null}">
+<c:if test="${not empty armors && not empty weapons}">
     <p>Battle more monsters to gain upgrade points!</p><br>
  			<form action="playGame.do" method="GET">
             <input type="submit" class="btn btn-success" value="Play Game">
-        </form><br>
+        </form><br><br>
 
 </c:if>
     
