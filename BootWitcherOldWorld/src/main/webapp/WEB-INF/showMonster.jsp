@@ -128,12 +128,12 @@
     <div class="form-group">
         <label for="weaponSelect">Choose your weapon:</label>
         <select id="weaponSelect" name="weaponId" class="form-control">
-            <c:forEach items="${player.weapons}" var="weapon">
+            <c:forEach items="${weapons}" var="weapon">
                 <option value="${weapon.id}">${weapon.name} | Weapon Damage: ${weapon.damage}</option>
             </c:forEach>
         </select>
     </div>
-    <input type="hidden" name="weaponId" value="${weapon.id}" />
+  
     <input type="hidden" name="monsterId" value="${monster.id}" />
     <input type="submit" value="Attack Monster" class="btn btn-danger" />
 </form><br>
