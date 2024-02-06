@@ -9,31 +9,48 @@
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <style>
-  body {
-    background-color: #0e0e10;
-    color: #d4d4d2;
-    font-family: 'Times New Roman', Times, serif;
-  }
-  h2 {
-    color: #c5b358;
-  }
-  p {
-    color: #ccc;
-  }
-  .container {
-    max-width: 800px;
-  }
-  img {
-    max-width: 100%;
-    height: auto;
-  }
+    body {
+        background-color: #0e0e10;
+        color: #d4d4d2;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    h2, p, a {
+        color: #c5b358; /* Witcher gold */
+    }
+    img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 5px;
+        margin-top: 20px;
+    }
+    .container {
+        max-width: 800px;
+        margin: auto;
+        padding-top: 20px;
+        text-align: center; 
+    }
+    .btn-primary, .btn-secondary {
+        margin-top: 10px;
+        background-color: #004445; /* Dark green background */
+        border: none;
+    }
+    .btn-primary:hover, .btn-secondary:hover {
+        background-color: #f4b942; /* Witcher medallion gold for hover */
+    }
+    a {
+        color: #d4d4d2;
+        text-decoration: none;
+    }
+    a:hover {
+        color: #f4b942;
+    }
 </style>
 </head>
 <body>
-
+<jsp:include page="nav.jsp" />
 <div class="container text-center mt-5">
     <h2>Welcome to our game!</h2>
-    <img src="https://files.oaiusercontent.com/file-5Zg96MCiOyXjDNKcmzpYhG3n?se=2024-02-03T20%3A16%3A03Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D8ee53735-7ac8-41d5-81a8-30e7f030ed81.webp&sig=KZA6j65INUFGg%2BotF8n/lREoox4divE2VxIKkF7QLDY%3D" alt="Witcher Image" class="img-fluid rounded">
+    <img src="https://i.ibb.co/RCtjyDv/DALL-E-2024-02-03-14-11-09-Create-an-image-of-a-Witcher-style-character-standing-on-a-hill-at-dawn-l.png" alt="Witcher Image" class="img-fluid rounded">
     <p class="mt-4">In the distant realm of Ardyl, a land where myths walk amongst men and magic is woven into the very fabric of reality, the echoes of a thousand battles linger, and dark creatures lurk in the shadows of a world torn by chaos and strife. You are a Witcher, a wanderer, and a master of the sword and sorcery, trained from birth to hunt the fearsome beasts that prey on the innocent.</p>
     <p>Your name is whispered in the hushed tones of reverence and fear, for your kind is as rare as it is misunderstood—mutants, gifted with extraordinary abilities, created to face the terrors that ordinary mortals dare not confront. You tread a lonely path, for few can understand the sacrifices you have made, the things you have endured, and the burdens you carry.</p>
     <p>As dawn breaks over the jagged peaks of the Ironback Mountains, a missive finds its way into your hands. It speaks of a village, Edgewater, on the brink of despair, besieged by a darkness that no man can name. The townsfolk are desperate, their numbers dwindling with each passing night, and their pleas for a savior have gone unanswered... until now.</p>
@@ -41,7 +58,9 @@
     <p>For you are a Witcher, the last light in the encroaching night, a beacon of hope in a world that has lost its way. The time has come to write your legend in the blood of the beasts that threaten the realm, to walk the path of the Witcher, where every choice is a burden and every battle a chance at redemption.</p>
     <p>To prepare your journey lets create some weapons and armor...</p>
 <br>
+
 <form action="manageInventory.do" method="GET">
+<input type="hidden" name="playerId" value="${player.id}">
 <input type="submit" value="Blacksmithing">
 </form><br>
 </div>

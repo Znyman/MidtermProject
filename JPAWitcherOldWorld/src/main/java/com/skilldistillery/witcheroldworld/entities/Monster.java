@@ -6,6 +6,7 @@ import java.util.Objects;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -24,11 +25,13 @@ public class Monster {
 	private int damage;
 	@Column(name = "experience_reward")
 	private int experienceReward;
-	@ManyToMany
+	@Column(name = "image_url")
+	private String imageUrl;
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "monster_location", 
-	joinColumns = @JoinColumn(name = "monster_id"), 
-	inverseJoinColumns = @JoinColumn(name = "location_id")) 
-    private List<Location> locations;
+	    joinColumns = @JoinColumn(name = "monster_id"), 
+	    inverseJoinColumns = @JoinColumn(name = "location_id"))
+	private List<Location> locations;
 
 	public Monster() {
 
@@ -81,6 +84,14 @@ public class Monster {
 
 	public void setLocations(List<Location> locations) {
 		this.locations = locations;
+	}
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
 	}
 
 	public void addLocation(Location location) {

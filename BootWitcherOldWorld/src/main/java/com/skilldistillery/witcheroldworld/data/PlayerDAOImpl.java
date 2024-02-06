@@ -1,9 +1,6 @@
 package com.skilldistillery.witcheroldworld.data;
 
-import java.util.List;
-
 import org.springframework.stereotype.Service;
-
 
 import com.skilldistillery.witcheroldworld.entities.Player;
 
@@ -34,9 +31,12 @@ public class PlayerDAOImpl implements PlayerDAO {
 		Player managedPlayer = em.find(Player.class, player.getId());
 		managedPlayer.setName(player.getName());
 		managedPlayer.setDescription(player.getDescription());
+		managedPlayer.setCurrentHealth(player.getCurrentHealth());
 		managedPlayer.setMaxHealth(player.getMaxHealth());
+		managedPlayer.setWeapons(player.getWeapons());
+		managedPlayer.setArmors(player.getArmors());
 		managedPlayer.setExperienceLevel(player.getExperienceLevel());
-			
+		managedPlayer.setLocation(player.getLocation());
 		return managedPlayer;
 	}
 
@@ -50,11 +50,25 @@ public class PlayerDAOImpl implements PlayerDAO {
 		return true;
 	}
 
+//	@Override
+//	public List<Player> findAll(int userId) {
+//		String jpql = "SELECT player FROM Player player WHERE player.userId = :userId";
+//		List<Player> players = em.createQuery(jpql, Player.class).setParameter("userId", userId).getResultList();
+//		return players;
+//	}
+
 	@Override
-	public List<Player> findAll(int userId) {
-		String jpql = "SELECT player FROM Player player WHERE user_id = :user_id";
-		List<Player> players = em.createQuery(jpql, Player.class).setParameter("user_id", userId).getResultList();
-		return players;
+	public Player findByUserId(int userId) {
+		String jpql = "SELECT player FROM Player player WHERE player.user.id = :userId";
+		Player player;
+		try {
+			player = em.createQuery(jpql, Player.class).setParameter("userId", userId).getSingleResult();
+		} catch (Exception e) {
+			return null;
+		}
+		return player;
 	}
 
+	
+	
 }

@@ -200,7 +200,11 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `witcherdb`;
+<<<<<<< HEAD
 INSERT INTO `player` (`id`, `name`, `description`, `current_health`, `max_health`, `experience_level`, `image_url`, `location_id`, `user_id`) VALUES (1, 'Isabella', 'Griffin Academy graduate', 20, 20, 3, 'https://www.gamespot.com/a/uploads/original/1179/11799911/2758965-witcher3.jpg', 1, 1);
+=======
+INSERT INTO `player` (`id`, `name`, `description`, `current_health`, `max_health`, `experience_level`, `image_url`, `location_id`, `user_id`) VALUES (1, 'Isabella', 'Gryphon Academy graduate', 20, 20, 3, 'https://www.gamespot.com/a/uploads/original/1179/11799911/2758965-witcher3.jpg', 1, 1);
+>>>>>>> fce39c2fc9385ee24920651c920e7ac34fe05320
 
 COMMIT;
 
@@ -231,10 +235,13 @@ COMMIT;
 START TRANSACTION;
 USE `witcherdb`;
 INSERT INTO `monster` (`id`, `name`, `health`, `damage`, `experience_reward`, `image_url`) VALUES (1, 'Ekimmara', 12, 3, 1, 'https://64.media.tumblr.com/d42f61f2edc8ad906bc47e6d85c86c9f/tumblr_oxbl75ESDt1sn3ne4o1_500.jpg');
+<<<<<<< HEAD
 INSERT INTO `monster` (`id`, `name`, `health`, `damage`, `experience_reward`, `image_url`) VALUES (2, 'Rotfiend', 11, 3, 1, 'https://thewitcher3.wiki.fextralife.com/file/The-Witcher-3/rotfiend.jpg');
 INSERT INTO `monster` (`id`, `name`, `health`, `damage`, `experience_reward`, `image_url`) VALUES (3, 'Harpy', 12, 3, 1, 'https://static.wikia.nocookie.net/witcher/images/c/c9/Tw3_cardart_monsters_harpy.png/revision/latest?cb=20170425202635');
 INSERT INTO `monster` (`id`, `name`, `health`, `damage`, `experience_reward`, `image_url`) VALUES (4, 'Manticore', 14, 4, 2, 'https://static.wikia.nocookie.net/witcher/images/6/6c/Gwent_cardart_monsters_manticore_combined.jpg/revision/latest/scale-to-width-down/1000?cb=20181025002800');
 INSERT INTO `monster` (`id`, `name`, `health`, `damage`, `experience_reward`, `image_url`) VALUES (5, 'Griffin', 15, 4, 2, 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/b1dc4323-c323-44d3-88cb-57b17f63c48b/d7zm6ov-168b3404-4b9f-4a81-a237-ab24676f5d92.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2IxZGM0MzIzLWMzMjMtNDRkMy04OGNiLTU3YjE3ZjYzYzQ4YlwvZDd6bTZvdi0xNjhiMzQwNC00YjlmLTRhODEtYTIzNy1hYjI0Njc2ZjVkOTIuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.6Mx851_o34JYJWvpir_h3kCUcp2GQFwfVizDhlH9Jtc');
+=======
+>>>>>>> fce39c2fc9385ee24920651c920e7ac34fe05320
 
 COMMIT;
 

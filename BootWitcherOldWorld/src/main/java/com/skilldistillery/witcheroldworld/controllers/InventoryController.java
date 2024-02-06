@@ -13,7 +13,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.skilldistillery.witcheroldworld.data.ArmorDAO;
 import com.skilldistillery.witcheroldworld.data.WeaponDAO;
 import com.skilldistillery.witcheroldworld.entities.Armor;
+import com.skilldistillery.witcheroldworld.entities.Player;
 import com.skilldistillery.witcheroldworld.entities.Weapon;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class InventoryController {
@@ -25,24 +28,41 @@ public class InventoryController {
 	private ArmorDAO armorDAO;
 
 	@GetMapping("manageInventory.do")
-	public String getAllWeapons(Model model, int playerId) {
-		List<Weapon> weaponsInventory = weaponDAO.findAll(playerId);
+	public String getAllInventory(Model model, HttpSession session) {
+		Player currentPlayer = (Player) session.getAttribute("player");
+		model.addAttribute("player", currentPlayer);
+		List<Weapon> weaponsInventory = weaponDAO.findAll(currentPlayer.getId());
 		model.addAttribute("weapons", weaponsInventory);
-		List<Armor> armorsInventory = armorDAO.findAll(playerId);
+		List<Armor> armorsInventory = armorDAO.findAll(currentPlayer.getId());
 		model.addAttribute("armors", armorsInventory);
 		return "manageInventory";
 	}
 
+	@GetMapping("newWeapon.do")
+	public String showCreateWeaponForm(Model model) {
+		return "createWeapon";
+	}
+
 	@PostMapping("newWeapon.do")
-	public String addWeaponToDao(Weapon weapon, RedirectAttributes redirectAttributes) {
-		weaponDAO.createWeapon(weapon);
+	public String addWeaponToDao(Weapon weapon, HttpSession session, RedirectAttributes redirectAttributes) {
+		Player currentPlayer = (Player) session.getAttribute("player");
+		weapon.setPlayer(currentPlayer);
+		Weapon managedWeapon = weaponDAO.createWeapon(weapon);
+		redirectAttributes.addFlashAttribute("weapon", managedWeapon);
 		redirectAttributes.addFlashAttribute("updateMessage", "Weapon added successfully!");
 		return "redirect:weaponAdded.do";
 	}
 
 	@GetMapping("weaponAdded.do")
-	public String weaponCreated(Weapon weapon) {
+	public String weaponCreated() {
 
+		return "redirect:subtractExperience.do";
+	}
+
+	@GetMapping("getWeapon.do")
+	public String getWeapon(@RequestParam("id") int id, Model model) {
+		Weapon managedWeapon = weaponDAO.findById(id);
+		model.addAttribute("weapon", managedWeapon);
 		return "showWeapon";
 	}
 
@@ -65,16 +85,31 @@ public class InventoryController {
 		return "showWeapon";
 	}
 
+	@GetMapping("newArmor.do")
+	public String showCreateArmorForm(Model model) {
+		return "createArmor";
+	}
+
 	@PostMapping("newArmor.do")
-	public String saveArmor(Armor armor, RedirectAttributes redirectAttributes) {
-		armorDAO.createArmor(armor);
+	public String saveArmor(Armor armor, HttpSession session, RedirectAttributes redirectAttributes) {
+		Player currentPlayer = (Player) session.getAttribute("player");
+		armor.setPlayer(currentPlayer);
+		Armor managedArmor = armorDAO.createArmor(armor);
+		redirectAttributes.addFlashAttribute("armor", managedArmor);
 		redirectAttributes.addFlashAttribute("updateMessage", "Armor added successfully!");
 		return "redirect:armorAdded.do";
 	}
 
 	@GetMapping("armorAdded.do")
-	public String armorCreated(Armor armor) {
+	public String armorCreated() {
 
+		return "redirect:subtractExperience.do";
+	}
+
+	@GetMapping("getArmor.do")
+	public String getArmor(@RequestParam("id") int id, Model model) {
+		Armor managedArmor = armorDAO.findById(id);
+		model.addAttribute("armor", managedArmor);
 		return "showArmor";
 	}
 
@@ -96,4 +131,5 @@ public class InventoryController {
 		}
 		return "showArmor";
 	}
+
 }

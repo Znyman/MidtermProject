@@ -8,6 +8,7 @@
 <title>Player Details</title>
 </head>
 <body>
+	<jsp:include page="nav.jsp" />
 	<div>
 		<c:if test="${not empty updateMessage}">
 			<h1>${updateMessage}</h1>
@@ -39,13 +40,17 @@
 						<label for="description"><em>What would you like to say about the description of this player?</em></label>
 						<input type="text" id="description" name="description">
 						<br>
+						<input type="hidden" name="currentHealth" value="${player.currentHealth}">
+						<input type="hidden" name="maxHealth" value="${player.maxHealth}">
+						<input type="hidden" name="experienceLevel" value="${player.experienceLevel}">
+						<input type="submit" value="Update Player" />
 					</form>
 					<form action="deletePlayer.do" method="POST">
 						<input type="hidden" name="id" value="${player.id}" />
 						<input type="submit" value="Delete Player" />
 					</form>
 					<form action="manageInventory.do" method="GET">
-						<input type="submit" value="Manage" />
+						<input type="submit" value="Manage Inventory" />
 					</form>
 				</div>
 			</c:when>
