@@ -6,6 +6,7 @@ import java.util.Objects;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -35,10 +36,10 @@ public class Player {
 	@JoinColumn(name = "location_id")
 	private Location location;
 
-	@OneToMany(mappedBy = "player")
+	@OneToMany(mappedBy = "player", fetch = FetchType.EAGER)
 	private List<Weapon> weapons;
 
-	@OneToMany(mappedBy = "player")
+	@OneToMany(mappedBy = "player", fetch = FetchType.EAGER)
 	private List<Armor> armors;
 
 	@OneToOne

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="jakarta.tags.core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -68,19 +69,19 @@
             <br>
             <label for="healthBar">Health:</label>
             <div class="progress">
-                <div id="healthBar" class="progress-bar progress-bar-striped" role="progressbar" style="width: ${monster.health}%" aria-valuenow="${monster.health}" aria-valuemin="0" aria-valuemax="100">${monster.health}</div>
+                <div id="healthBar" class="progress-bar progress-bar-striped" role="progressbar" style="width: ${monster.health / 20.0 * 100}%" aria-valuenow="${monster.health}" aria-valuemin="0" aria-valuemax="20">${monster.health}</div>
             </div>
             <br>
 
             <label for="damageBar">Strength:</label>
             <div class="progress">
-                <div id="damageBar" class="progress-bar progress-bar-striped" role="progressbar" style="width: ${monster.damage}%" aria-valuenow="${monster.damage}" aria-valuemin="0" aria-valuemax="100">${monster.damage}</div>
+                <div id="damageBar" class="progress-bar progress-bar-striped" role="progressbar" style="width: ${monster.damage / 5.0 * 100}%" aria-valuenow="${monster.damage}" aria-valuemin="0" aria-valuemax="20">${monster.damage}</div>
             </div>
             <br>
 
             <label for="expBar">Bounty:</label>
             <div class="progress">
-                <div id="expBar" class="progress-bar progress-bar-striped" role="progressbar" style="width: ${monster.experienceReward}%" aria-valuenow="${monster.experienceReward}" aria-valuemin="0" aria-valuemax="100">${monster.experienceReward}</div>
+                <div id="expBar" class="progress-bar progress-bar-striped" role="progressbar" style="width: ${monster.experienceReward / 5.0 * 100}%" aria-valuenow="${monster.experienceReward}" aria-valuemin="0" aria-valuemax="20">${monster.experienceReward}</div>
             </div>
             <!-- Add more details as needed -->
         </c:when>
@@ -94,6 +95,53 @@
             <img src="${monster.imageUrl}" alt="Monster Image">
         </c:if>
     </div>
+</div>
+
+
+<div class="container">
+    <c:choose>
+        <c:when test="${not empty monster && not empty player}">
+            <h2>Battle Arena</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Player: ${player.name}</h3>
+                    <p>Health: 
+                        <div class="progress status-bar">
+                            <div class="progress-bar" role="progressbar" style="width: ${player.currentHealth / 20.0 * 100}%;" aria-valuenow="${player.currentHealth}" aria-valuemin="0" aria-valuemax="20">${player.currentHealth}</div>
+                        </div>
+                    </p>
+                  
+                </div>
+                <div class="col-md-6">
+                    <h3>Monster: ${monster.name}</h3>
+                    <p>Health: 
+                       <div class="progress status-bar">
+    <div class="progress-bar" role="progressbar" style="width: ${monster.health / 20.0 * 100}%;" aria-valuenow="${monster.health}" aria-valuemin="0" aria-valuemax="20">
+        ${monster.health}
+    </div>
+</div>
+                    </p>
+                    <p>Strength: ${monster.damage}</p>
+                </div>
+            </div>
+        <form action="witcherAttack.do" method="post">
+    <div class="form-group">
+        <label for="weaponSelect">Choose your weapon:</label>
+        <select id="weaponSelect" name="weaponId" class="form-control">
+            <c:forEach items="${weapons}" var="weapon">
+                <option name ="weaponId" value="${weapon.id}">${weapon.name}${weapon.damage}</option>
+            </c:forEach>
+        </select>
+    </div>
+    <input type="hidden" name="monsterId" value="${monster.id}" />
+    <input type="submit" value="Attack Monster" class="btn btn-danger" />
+</form><br>
+        </c:when>
+        <c:otherwise>
+            <h2>Prepare for Battle</h2>
+            <p>No opponent found. Please select a monster to battle.</p>
+        </c:otherwise>
+    </c:choose>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
