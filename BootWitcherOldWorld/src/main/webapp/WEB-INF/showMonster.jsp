@@ -75,7 +75,7 @@
 
             <label for="damageBar">Strength:</label>
             <div class="progress">
-                <div id="damageBar" class="progress-bar progress-bar-striped" role="progressbar" style="width: ${monster.damage / 5.0 * 100}%" aria-valuenow="${monster.damage}" aria-valuemin="0" aria-valuemax="20">${monster.damage}</div>
+                <div id="damageBar" class="progress-bar progress-bar-striped" role="progressbar" style="width: ${monster.damage / 10.0 * 100}%" aria-valuenow="${monster.damage}" aria-valuemin="0" aria-valuemax="20">${monster.damage}</div>
             </div>
             <br>
 
