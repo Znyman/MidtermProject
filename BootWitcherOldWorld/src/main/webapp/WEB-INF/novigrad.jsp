@@ -50,7 +50,13 @@
 	<jsp:include page="nav.jsp"/>
 	<div class="container">
 		<div class="row">
-			<div class="col-sm">Storyline Information</div>
+			<div class="col-sm">
+				Storyline Information
+				<br>
+				<form action="showMonster.do" method="GET">
+					<input type="submit" value="Fight the monster at this location" />
+				</form>
+				</div>
 			<div class="col-sm">
 				<c:if test="${not empty player.imageUrl}">
 					<img src="${player.imageUrl}">

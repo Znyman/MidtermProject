@@ -1,5 +1,6 @@
 package com.skilldistillery.witcheroldworld.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,28 +26,42 @@ public class MonsterController {
 	@GetMapping("showMonster.do")
 	public String showMonster(HttpSession session, Model model) {
 		Player currentPlayer = (Player) session.getAttribute("player");
-		Location currentLocation = currentPlayer.getLocation();
-		List<Weapon> weapons = currentPlayer.getWeapons();
-		List<Armor> armors = currentPlayer.getArmors();
 		
-		Monster monster = new Monster();
-		Monster monsterToCopy = monsterDAO.findById(currentLocation.getId());
-		monster.setDamage(monsterToCopy.getDamage());
-		monster.setDescription(monsterToCopy.getDescription());
-		monster.setExperienceReward(monsterToCopy.getExperienceReward());
-		monster.setHealth(monsterToCopy.getHealth());
-		monster.setImageUrl(monsterToCopy.getImageUrl());
-		monster.setLocations(monsterToCopy.getLocations());
-		monster.setName(monsterToCopy.getName());
-		monster.setPlayer(currentPlayer);
-		monster = monsterDAO.createMonster(monster);
+		if (currentPlayer.getMonster() == null) {
+			Location currentLocation = currentPlayer.getLocation();
+			List<Weapon> weapons = currentPlayer.getWeapons();
+			List<Armor> armors = currentPlayer.getArmors();
+			
+			List<Location> newLocations = new ArrayList<>();
+			newLocations.add(currentLocation);
+			
+			Monster monster = new Monster();
+			Monster monsterToCopy = monsterDAO.findById(currentLocation.getId());
+			monster.setDamage(monsterToCopy.getDamage());
+			monster.setDescription(monsterToCopy.getDescription());
+			monster.setExperienceReward(monsterToCopy.getExperienceReward());
+			monster.setHealth(monsterToCopy.getHealth());
+			monster.setImageUrl(monsterToCopy.getImageUrl());
+			monster.setLocations(newLocations);
+			monster.setName(monsterToCopy.getName());
+			monster.setPlayer(currentPlayer);
+			monster = monsterDAO.createMonster(monster);
+			
+			currentPlayer.setMonster(monster);
+			
+			session.setAttribute("armors", armors);
+			model.addAttribute("armors", armors);
+			session.setAttribute("weapons", weapons);
+			model.addAttribute("weapons", weapons);
+			
+			session.setAttribute("monster", monster);
+			model.addAttribute("monster", monster);
+		}
 		
-		session.setAttribute("armors", armors);
-		model.addAttribute("armors", armors);
-		session.setAttribute("weapons", weapons);
-		model.addAttribute("weapons", weapons);
-		session.setAttribute("monster", monster);
-		model.addAttribute("monster", monster);
+		if (currentPlayer.getMonster().getHealth() <= 0) {
+			return "redirect:monsterDefeated.do";
+		}
+		
 		return "showMonster";
 	}
 }
