@@ -102,11 +102,4 @@ public class PlayerController {
 		managedPlayer = playerDAO.updatePlayer(managedPlayer);
 		return "redirect:manageInventory.do";
 	}
-
-	@GetMapping("updatePlayerLocation.do")
-	public String updatePlayerLocation(HttpSession session) {
-		Player player = (Player) session.getAttribute("player");
-		player = playerDAO.updatePlayer(player);
-		return "redirect:playGame.do";
-	}
 }
