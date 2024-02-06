@@ -106,6 +106,15 @@ public class Monster {
 		this.description = description;
 	}
 
+	
+	public Player getPlayer() {
+		return player;
+	}
+
+	public void setPlayer(Player player) {
+		this.player = player;
+	}
+
 	public void addLocation(Location location) {
 		if (locations == null) {
 			locations = new ArrayList<>();
