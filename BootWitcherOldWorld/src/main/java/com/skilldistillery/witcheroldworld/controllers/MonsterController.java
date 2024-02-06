@@ -58,10 +58,6 @@ public class MonsterController {
 			model.addAttribute("monster", monster);
 		}
 		
-		if (currentPlayer.getMonster().getHealth() <= 0) {
-			return "redirect:monsterDefeated.do";
-		}
-		
 		return "showMonster";
 	}
 }
