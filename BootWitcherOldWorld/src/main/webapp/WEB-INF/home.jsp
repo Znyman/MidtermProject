@@ -20,9 +20,9 @@
     h2 {
         text-align: center;
         margin-top: 75px; 
-        font-size: 57px; 
+        font-size: 66px; 
         color: #fff; 
-        font-family: 'Mason Serif', serif; 
+    	font-family: 'Papyrus', 'Mason Serif', serif; 
     }
 
     form {
@@ -73,9 +73,19 @@
         width: calc(100% - 22px); 
     }
 
-    .create-account-button:hover {
-        background-color: #666; 
-    }
+.create-account-button {
+    width: auto; 
+    padding: 8px 12px;
+    font-size: 14px; 
+    font-weight: bold; 
+    border: none;
+    background-color: #800080; 
+    color: black; 
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block;
+    margin: 5px auto 5px; 
+}
 
     .account-creation-form {
         display: none; 
@@ -92,7 +102,12 @@
         color: #fff; 
     }
 
-
+    /* Animation */
+    @keyframes loginAnimation {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+    }
 </style>
 
 </head>
@@ -106,7 +121,7 @@
         <br>
         <input type="password" name="password" placeholder="Password" required>
         <br>
-        <input type="submit" value="Log In">
+        <input type="submit" value="Log In" onclick="animateLogin()">
     </form>
 
     <!-- Create Account button -->
@@ -126,6 +141,16 @@
             } else {
                 form.style.display = 'none';
             }
+        }
+
+        function animateLogin() {
+            var submitButton = document.querySelector('input[type="submit"]');
+            submitButton.style.animation = 'loginAnimation 1s';
+            setTimeout(function() {
+                submitButton.style.animation = '';
+                // Redirect to account page after animation
+                window.location.href = 'accountPage.jsp';
+            }, 1000); // Adjust the delay as needed
         }
     </script>
 
