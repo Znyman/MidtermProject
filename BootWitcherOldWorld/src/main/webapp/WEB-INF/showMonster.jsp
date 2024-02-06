@@ -129,17 +129,21 @@
         <label for="weaponSelect">Choose your weapon:</label>
         <select id="weaponSelect" name="weaponId" class="form-control">
             <c:forEach items="${weapons}" var="weapon">
-                <option name ="weaponId" value="${weapon.id}">${weapon.name}${weapon.damage}</option>
+                <option value="${weapon.id}">${weapon.name} Damage: ${weapon.damage}</option>
             </c:forEach>
         </select>
     </div>
+    <input type="hidden" name="weaponId" value="${weapon.id}" />
     <input type="hidden" name="monsterId" value="${monster.id}" />
     <input type="submit" value="Attack Monster" class="btn btn-danger" />
 </form><br>
         </c:when>
         <c:otherwise>
-            <h2>Prepare for Battle</h2>
-            <p>No opponent found. Please select a monster to battle.</p>
+            <p>It's going to be a long hike back...</p>
+        <br>
+      	<form action="playGame.do" method="GET">
+            <input type="submit" class="btn btn-success" value="Return to Town">
+        </form>
         </c:otherwise>
     </c:choose>
 </div>
