@@ -33,11 +33,11 @@
     <ul>
         <li><a href="home.do">Home</a></li>
         <c:if test="${not empty loginUser}">
-            <li><a href="account.do">Account</a></li>
             <li><a href="logout.do">Logout</a></li>
         </c:if>
         <c:if test="${empty loginUser}">
             <li><a href="login.do">Login</a></li>
         </c:if>
+        <li><a href="https://cf.geekdo-images.com/_Pam5FggR-mtC_UQq9L4-A__imagepage/img/p1rtX-yYNomTmIWoEI2qnh0r-Fs=/fit-in/900x600/filters:no_upscale():strip_icc()/pic6516763.jpg" target="_blank">Map</a></li>
     </ul>
 </nav>
