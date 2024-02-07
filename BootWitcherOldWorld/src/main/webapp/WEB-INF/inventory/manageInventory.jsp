@@ -79,11 +79,11 @@
     </c:choose><br>
     <p>You have ${player.experienceLevel} upgrade points which means you can craft ${player.experienceLevel} pieces of gear before heading out on your next journey!</p>
     <c:if test="${player.experienceLevel > 0}">
-    <form action="newArmor.do" method="GET">
-        <input type="submit" class="btn btn-primary" value="Create Armor">
-    </form>
     <form action="newWeapon.do" method="GET">
         <input type="submit" class="btn btn-secondary" value="Create Weapon">
+    </form>
+    <form action="newArmor.do" method="GET">
+        <input type="submit" class="btn btn-primary" value="Create Armor">
     </form><br><br>
 </c:if>
 

@@ -61,7 +61,7 @@
 
 <form action="manageInventory.do" method="GET">
 <input type="hidden" name="playerId" value="${player.id}">
-<input type="submit" value="Blacksmithing">
+<input type="submit" class="btn btn-secondary" value="Blacksmithing">
 </form><br>
 </div>
 
