@@ -57,7 +57,7 @@
     </style>
 </head>
 <body>
-    <jsp:include page="nav.jsp" />
+    <jsp:include page="../nav.jsp" />
     <div class="container">
         <h2>Congratulations!</h2>
         <br>

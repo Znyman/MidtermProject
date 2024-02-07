@@ -96,7 +96,7 @@
 
 </head>
 <body>
-    <jsp:include page="nav.jsp" />
+    <jsp:include page="../nav.jsp" />
     <div class="container">
         <div>
             <c:if test="${not empty updateMessage}">
@@ -143,6 +143,7 @@
             <input type="hidden" name="playerId" value="${player.id}">
             <input type="submit" value="Manage Inventory" class="btn btn-primary">
         </form>
+        <br> <br>
     </div>
     
     <!-- JavaScript to handle expanding text inputs -->

@@ -97,7 +97,7 @@
 
 </head>
 <body>
-    <jsp:include page="nav.jsp" />
+    <jsp:include page="../nav.jsp" />
     <div class="container">
         <div>
             <c:if test="${not empty updateMessage}">
@@ -141,7 +141,8 @@
                 <input type="hidden" name="playerId" value="${player.id}">
                 <input type="submit" value="Manage Inventory" class="btn btn-primary">
             </form>
-        </div>
+			<br> <br>
+		</div>
     </div>
     <script>
         // Get all text inputs with class "form-control"

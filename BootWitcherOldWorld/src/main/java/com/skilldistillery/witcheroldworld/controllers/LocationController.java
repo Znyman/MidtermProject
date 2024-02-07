@@ -33,28 +33,28 @@ public class LocationController {
 			playerDao.updatePlayer(currentPlayer);
 			model.addAttribute("player", currentPlayer);
 			model.addAttribute("location", currentLocation);
-			return "kaerSeren";
+			return "locations/kaerSeren";
 		}
 
 		switch (currentLocation.getName()) {
 		case "Kaer Seren":
 			model.addAttribute("location", currentLocation);
-			return "kaerSeren";
+			return "locations/kaerSeren";
 		case "Hengfors":
 			model.addAttribute("location", currentLocation);
-			return "hengfors";
+			return "locations/hengfors";
 		case "Cidaris":
 			model.addAttribute("location", currentLocation);
-			return "cidaris";
+			return "locations/cidaris";
 		case "Cintra":
 			model.addAttribute("location", currentLocation);
-			return "cintra";
+			return "locations/cintra";
 		case "Novigrad":
 			model.addAttribute("location", currentLocation);
-			return "novigrad";
+			return "locations/novigrad";
 		default:
 			model.addAttribute("location", currentLocation);
-			return "kaerSeren";
+			return "locations/kaerSeren";
 		}
 	}
 
