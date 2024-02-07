@@ -116,13 +116,13 @@
                         <form action="updateArmor.do" method="POST" id="updateArmorForm">
                             <input type="hidden" name="id" value="${armor.id}">
                             <label for="name"><em>What would you like to rename this armor to?</em></label>
-                            <input type="text" id="name" name="name" class="form-control">
+                            <input type="text" id="name" name="name" value="Leather Bracers" class="form-control">
                             <label for="description"><em>What would you like to say about the description of this armor?</em></label>
-                            <input type="text" id="description" name="description" class="form-control">
+                            <input type="text" id="description" name="description" value="Sturdy bracers from the Witcher Academy" class="form-control">
                             <label for="defense"><em>How much defense does this armor have now?</em></label>
-                            <input type="range" id="defense" name="defense" min="1" max="5" class="form-control">
+                            <input type="range" id="defense" name="defense" min="1" max="2" class="form-control">
                             <label for="tier"><em>What tier is this armor now?</em></label>
-                            <input type="range" id="tier" name="tier" min="1" max="3" class="form-control">
+                            <input type="range" id="tier" name="tier" min="1" max="2" class="form-control">
                             <input type="submit" value="Update Armor" class="btn btn-primary">
                         </form>
                         <strong>Delete items wisely because that's your only way to win fights against monsters!</strong>

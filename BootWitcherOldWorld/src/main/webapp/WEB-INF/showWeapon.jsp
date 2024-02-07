@@ -117,13 +117,13 @@
                         <form action="updateWeapon.do" method="POST" id="updateWeaponForm">
                             <input type="hidden" name="id" value="${weapon.id}">
                             <label for="name"><em>What would you like to rename this weapon to?</em></label>
-                            <input type="text" id="name" name="name" class="form-control">
+                            <input type="text" id="name" name="name" value="Viper's Sting" class="form-control">
                             <label for="description"><em>What would you like to say about the description of this weapon?</em></label>
-                            <input type="text" id="description" name="description" class="form-control">
+                            <input type="text" id="description" name="description" value="Punctures through most armor and flesh" class="form-control">
                             <label for="damage"><em>How much damage does this weapon do now?</em></label>
-                            <input type="range" id="damage" name="damage" min="1" max="5" class="form-control">
+                            <input type="range" id="damage" name="damage" min="1" max="3" class="form-control">
                             <label for="tier"><em>What tier is this weapon now?</em></label>
-                            <input type="range" id="tier" name="tier" min="1" max="3" class="form-control">
+                            <input type="range" id="tier" name="tier" min="1" max="2" class="form-control">
                             <input type="submit" value="Update Weapon" class="btn btn-primary">
                         </form>
                         <strong>Delete items wisely because that's your only way to win fights against monsters!</strong>
