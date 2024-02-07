@@ -124,6 +124,7 @@ a:hover {
 								aria-valuenow="${player.currentHealth}" aria-valuemin="0"
 								aria-valuemax="20">${player.currentHealth}</div>
 						</div>
+						
 						<form action="witcherAttack.do" method="POST">
 						<div class="weapon-selection">
 							<label for="weaponSelect">Choose your weapon:</label> <select
@@ -132,11 +133,15 @@ a:hover {
 									<option value="${weapon.id}">${weapon.name}| Weapon
 										Damage: ${weapon.damage}</option>
 								</c:forEach>
-							</select> <input type="hidden" name="monsterId" value="${monster.id}" />
+							</select> <br><input type="hidden" name="monsterId" value="${monster.id}" />
 							<button type="submit" class="btn btn-danger">Attack
 								Monster</button>
 						</div>
-						</form>
+						</form><br>
+					<form action="playGame.do" method="GET">
+            <input type="submit" class="btn btn-success" value="Retreat">
+        </form>
+					
 					</div>
 
 					<!-- VS Text -->
