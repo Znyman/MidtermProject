@@ -69,7 +69,9 @@ public class InventoryController {
 	}
 
 	@PostMapping("updateWeapon.do")
-	public String updateWeapon(Weapon weapon, Model model) {
+	public String updateWeapon(Weapon weapon, Model model, HttpSession session) {
+		Player currentPlayer = (Player) session.getAttribute("player");
+		weapon.setPlayer(currentPlayer);
 		Weapon managedWeapon = weaponDAO.updateWeapon(weapon);
 		model.addAttribute("weapon", managedWeapon);
 		model.addAttribute("updateMessage", "Your weapon has been updated successfully.");
@@ -123,7 +125,9 @@ public class InventoryController {
 	}
 
 	@PostMapping("updateArmor.do")
-	public String updateArmor(Armor armor, Model model) {
+	public String updateArmor(Armor armor, Model model, HttpSession session) {
+		Player currentPlayer = (Player) session.getAttribute("player");
+		armor.setPlayer(currentPlayer);
 		Armor managedArmor = armorDAO.updateArmor(armor);
 		model.addAttribute("armor", managedArmor);
 		model.addAttribute("updateMessage", "Armor updated successfully!");
