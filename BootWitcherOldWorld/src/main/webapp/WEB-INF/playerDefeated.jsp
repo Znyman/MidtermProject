@@ -69,9 +69,7 @@
 <input type="submit" class="btn btn-success" value="Meditate">
 </form>
 <br>
-<video width="720" height="405" autoplay loop>
-  <source src="https://packaged-media.redd.it/7plhhrbihh4a1/pb/m2-res_1080p.mp4?m=DASHPlaylist.mpd&v=1&e=1707278400&s=74fb079ac6cef169f64ce38dfa536564603ae030#t=0" type="video/mp4">
-</video>
+<img src="https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fstaticdelivery.nexusmods.com%2Fmods%2F952%2Fimages%2F7986%2F7986-1677689596-2057705513.png"> 
 
 
 </div>
