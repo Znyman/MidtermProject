@@ -53,16 +53,16 @@
 						<input type="submit" value="Delete Weapon" />
 					</form>
 					<br>
-					<form action="manageInventory.do" method="GET">
-						<input type="hidden" name="playerId" value="${player.id}">
-						<input type="submit" value="Manage Inventory">
-					</form>
 				</div>
 			</c:when>
 			<c:otherwise>
 				<h2>Weapon not found.</h2>
 			</c:otherwise>
 		</c:choose>
+		<form action="manageInventory.do" method="GET">
+			<input type="hidden" name="playerId" value="${player.id}"> <input
+				type="submit" value="Manage Inventory">
+		</form>
 	</div>
 </body>
 </html>

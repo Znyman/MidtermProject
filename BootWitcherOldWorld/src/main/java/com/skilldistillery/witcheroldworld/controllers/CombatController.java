@@ -80,6 +80,9 @@ public class CombatController {
 		if (damageToWitcher > 0) {
 			currentPlayer.setCurrentHealth(currentPlayer.getCurrentHealth() - damageToWitcher);
 			currentPlayer = playerDAO.updatePlayer(currentPlayer);
+		} else {
+			currentPlayer.setCurrentHealth(currentPlayer.getCurrentHealth() - 3);
+			currentPlayer = playerDAO.updatePlayer(currentPlayer);
 		}
 
 		if (currentPlayer.getCurrentHealth() <= 0) {
