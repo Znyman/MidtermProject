@@ -58,7 +58,6 @@
 </style>
 </head>
 <body>
-<jsp:include page="nav.jsp" />
 
 <div class="container">
     <c:choose>
