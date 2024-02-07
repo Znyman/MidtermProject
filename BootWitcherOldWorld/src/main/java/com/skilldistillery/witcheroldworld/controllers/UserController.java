@@ -74,9 +74,9 @@ public class UserController {
 	}
 	
 	@GetMapping(path = "account.do")
-	public String goToAccountPage(HttpSession session, Model model) {
+	public String goToAccountPage(HttpSession session) {
 		User loginUser = (User) session.getAttribute("loginUser");
-		model.addAttribute("loginUser", loginUser);
+		session.setAttribute("loginUser", loginUser);
 		return "redirect:playerSession.do";
 	}
 	
