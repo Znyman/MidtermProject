@@ -93,9 +93,9 @@ a:hover {
 }
 
 .combatant img {
-	width: 400px;
-	height:500px
-	height: auto; /* Set a fixed height for images */
+	width: 100%;
+	height: 100%;
+	
 }
 
 .weapon-selection {
