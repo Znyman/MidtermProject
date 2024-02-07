@@ -30,7 +30,7 @@
         margin-top: 20px;
     }
     .container {
-        max-width: 800px;
+        width: 100%;
         margin: auto;
         padding-top: 20px;
         text-align: center; 
@@ -65,21 +65,20 @@
         align-items: center;
     }
     .bottom-container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); /* Two columns with equal width */
-        grid-gap: 10px; /* Add gap between items */
-        margin-top: 10px;
-    }
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns with equal width */
+    grid-gap: 10px; /* Add gap between items */
+    margin-top: 10px;
+}
 
     .bottom-container .col-half {
         width: 50%;
     }
     .smaller-image {
-        width: 80%; /* Adjust the width as needed */
-    }
+    width: 80%; /* Adjust the width as needed */
+}
     
 </style>
-
 </head>
 <body>
     <jsp:include page="../nav.jsp"/>
@@ -101,49 +100,54 @@
                     <input type="submit" class="btn btn-success" value="Meditate">
                 </form>
             </div>
-             <div class="col-half">
-                <h2>Current Location: ${location.name}</h2>
-                <img src="${location.imageUrl}" alt="Location Image" class="location-image">
-                <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#locationButtons" aria-expanded="false" aria-controls="locationButtons">
-                    View Locations
-                </button>
-                <div class="collapse" id="locationButtons">
-                    <form action="changeLocation.do">
-					<input type="hidden" name="locationId" value="1">
-					<input type="submit" class="btn btn-secondary" value="Go To Kaer Seren">
-				</form>
-				<form action="changeLocation.do">
-					<input type="hidden" name="locationId" value="3">
-					<input type="submit" class="btn btn-secondary" value="Go To Novigrad">
-				</form>
-				<form action="changeLocation.do">
-					<input type="hidden" name="locationId" value="5">
-					<input type="submit" class="btn btn-secondary" value="Go To Cintra">
-				</form>
-                </div>
-            </div>
-        </div>
-		<div class="bottom-container">
-			<div class="player-info">
-				<!-- Player image URL -->
-				<c:if test="${not empty player.imageUrl}">
-					<img src="${player.imageUrl}" class="player-image smaller-image">
-				</c:if>
-				<c:if test="${empty player.imageUrl}">
-					<img src="default-image-url.jpg" class="player-image smaller-image">
-				</c:if>
-				<form action="manageInventory.do" method="GET">
-					<input type="submit" value="Manage Inventory"
-						class="btn btn-primary">
-				</form>
-				<br> <br>
-			</div>
-		</div>
-	</div>
+       <div class="col-half">
+    <h2>Current Location: ${location.name}</h2>
+    <img src="${location.imageUrl}" alt="Location Image" class="location-image">
+    <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#locationButtons" aria-expanded="false" aria-controls="locationButtons">
+        View Locations
+    </button>
+    <div class="collapse" id="locationButtons">
+        <form action="changeLocation.do">
+            <input type="hidden" name="locationId" value="19">
+            <button type="submit" class="btn btn-secondary">Go To Behelt Nar</button>
+        </form>
+        <form action="changeLocation.do">
+            <input type="hidden" name="locationId" value="14">
+            <button type="submit" class="btn btn-secondary">Loc Ichaer</button>
+        </form>
+		<form action="changeLocation.do">
+			<input type="hidden" name="locationId" value="18">
+			<input type="submit" class="btn btn-secondary" value="Go To Ard Modron">
+		</form>
+        <form action="changeLocation.do">
+            <input type="hidden" name="locationId" value="11">
+            <button type="submit" class="btn btn-secondary">Go To Beauclair</button>
+        </form>
+    </div>
+</div>
 
-    <!-- Optional JavaScript and Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.6/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+			<div class="bottom-container">
+				<div class="player-info">
+					<!-- Player image URL -->
+					<c:if test="${not empty player.imageUrl}">
+						<img src="${player.imageUrl}" class="player-image smaller-image">
+					</c:if>
+					<c:if test="${empty player.imageUrl}">
+						<img src="default-image-url.jpg"
+							class="player-image smaller-image">
+					</c:if>
+
+					<form action="manageInventory.do" method="GET">
+						<input type="submit" value="Manage Inventory"
+							class="btn btn-primary">
+					</form>
+					<br> <br>
+				</div>
+			</div>
+
+			<!-- Optional JavaScript and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

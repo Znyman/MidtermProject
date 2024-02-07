@@ -108,18 +108,22 @@
                     View Locations
                 </button>
                 <div class="collapse" id="locationButtons">
-                    <form action="changeLocation.do">
-					<input type="hidden" name="locationId" value="1">
-					<input type="submit" class="btn btn-secondary" value="Go To Kaer Seren">
-				</form>
-				<form action="changeLocation.do">
-					<input type="hidden" name="locationId" value="3">
-					<input type="submit" class="btn btn-secondary" value="Go To Novigrad">
+                <form action="changeLocation.do">
+					<input type="hidden" name="locationId" value="13">
+					<input type="submit" class="btn btn-secondary" value="Go To Doldeth">
 				</form>
 				<form action="changeLocation.do">
 					<input type="hidden" name="locationId" value="5">
 					<input type="submit" class="btn btn-secondary" value="Go To Cintra">
 				</form>
+			    <form action="changeLocation.do">
+			         <input type="hidden" name="locationId" value="14">
+			         <button type="submit" class="btn btn-secondary">Loc Ichaer</button>
+			    </form>
+                <form action="changeLocation.do">
+		            <input type="hidden" name="locationId" value="10">
+		            <button type="submit" class="btn btn-secondary">Go To Haern Caduch</button>
+		        </form>
                 </div>
             </div>
         </div>
