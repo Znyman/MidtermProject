@@ -110,11 +110,18 @@
 					<input type="hidden" name="locationId" value="1">
 					<input type="submit" class="btn btn-secondary" value="Go To Kaer Seren">
 				</form>
-				<br>
 				<form action="changeLocation.do">
 					<input type="hidden" name="locationId" value="3">
 					<input type="submit" class="btn btn-secondary" value="Go To Novigrad">
 				</form>
+		        <form action="changeLocation.do">
+		            <input type="hidden" name="locationId" value="7">
+		            <button type="submit" class="btn btn-secondary">Go To Vizima</button>
+		        </form>
+                <form action="changeLocation.do">
+		            <input type="hidden" name="locationId" value="6">
+		            <button type="submit" class="btn btn-secondary">Go To Kaer Morhen</button>
+		        </form>
                 </div>
             </div>
         </div>

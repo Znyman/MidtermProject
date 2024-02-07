@@ -27,6 +27,7 @@ public class LocationController {
 		Player currentPlayer = (Player) session.getAttribute("player");
 		currentPlayer.setMonster(null);
 		Location currentLocation = currentPlayer.getLocation();
+		
 		if (currentLocation == null) {
 			currentLocation = locationDao.findById(1);
 			currentPlayer.setLocation(currentLocation);
@@ -36,24 +37,48 @@ public class LocationController {
 			return "locations/kaerSeren";
 		}
 
+		model.addAttribute("location", currentLocation);
+
 		switch (currentLocation.getName()) {
-		case "Kaer Seren":
-			model.addAttribute("location", currentLocation);
-			return "locations/kaerSeren";
-		case "Hengfors":
-			model.addAttribute("location", currentLocation);
-			return "locations/hengfors";
+		case "Ard Modron":
+			return "locations/ardModron";
+		case "Ban Ard":
+			return "locations/banArd";
+		case "Beauclair":
+			return "locations/beauclair";
+		case "Behelt Nar":
+			return "locations/beheltNar";
 		case "Cidaris":
-			model.addAttribute("location", currentLocation);
 			return "locations/cidaris";
 		case "Cintra":
-			model.addAttribute("location", currentLocation);
 			return "locations/cintra";
+		case "Dhuwod":
+			return "locations/dhuwod";
+		case "Doldeth":
+			return "locations/doldeth";
+		case "Glenmore":
+			return "locations/glenmore";
+		case "Gorthur Guaed":
+			return "locations/gorthurGuaed";
+		case "Haern Caduch":
+			return "locations/haernCaduch";
+		case "Hengfors":
+			return "locations/hengfors";
+		case "Kaer Morhen":
+			return "locations/kaerMorhen";
+		case "Kaer Seren":
+			return "locations/kaerSeren";
+		case "Loc Ichaer":
+			return "locations/locIchaer";
 		case "Novigrad":
-			model.addAttribute("location", currentLocation);
 			return "locations/novigrad";
+		case "Stygga":
+			return "locations/stygga";
+		case "Vengerberg":
+			return "locations/vengerberg";
+		case "Vizima":
+			return "locations/vizima";
 		default:
-			model.addAttribute("location", currentLocation);
 			return "locations/kaerSeren";
 		}
 	}
