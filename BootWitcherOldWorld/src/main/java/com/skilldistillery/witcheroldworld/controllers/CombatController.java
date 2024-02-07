@@ -30,11 +30,14 @@ public class CombatController {
 
 	@Autowired
 	private WeaponDAO weaponDAO;
-
+	
 	@PostMapping("witcherAttack.do")
 	public String witcherAttack(@RequestParam("weaponId") int weaponId, HttpSession session, Model model) {
 		Player currentPlayer = (Player) session.getAttribute("player");
 		Weapon currentWeapon = weaponDAO.findById(weaponId);
+		if (currentWeapon == null) {
+			return "redirect:manageInventory.do";
+		}
 		Monster currentMonster = (Monster) session.getAttribute("monster");
 
 		currentMonster.setHealth(currentMonster.getHealth() - currentWeapon.getDamage());
@@ -50,7 +53,7 @@ public class CombatController {
 			monsterDAO.deleteMonster(currentPlayer.getMonster().getId());
 			currentPlayer.setMonster(null);
 			session.removeAttribute("monster");
-			return "monsterDefeated";
+			return "gameplay/monsterDefeated";
 		}
 
 		return "redirect:monsterAttack.do";
@@ -64,7 +67,7 @@ public class CombatController {
 		List<Armor> armors = currentPlayer.getArmors();
 		int totalDefense = 0;
 		for (Armor armor : armors) {
-			totalDefense = armor.getDefense();
+			totalDefense += armor.getDefense();
 		}
 
 		int damageToWitcher = currentMonster.getDamage() - totalDefense;
@@ -72,30 +75,33 @@ public class CombatController {
 		if (damageToWitcher > 0) {
 			currentPlayer.setCurrentHealth(currentPlayer.getCurrentHealth() - damageToWitcher);
 			currentPlayer = playerDAO.updatePlayer(currentPlayer);
+		} else {
+			currentPlayer.setCurrentHealth(currentPlayer.getCurrentHealth() - 3);
+			currentPlayer = playerDAO.updatePlayer(currentPlayer);
 		}
 
 		if (currentPlayer.getCurrentHealth() <= 0) {
 			currentPlayer.setMonster(null);
 			session.removeAttribute("monster");
-			return "playerDefeated";
+			return "gameplay/playerDefeated";
 		}
 
 		session.setAttribute("player", currentPlayer);
 		model.addAttribute("player", currentPlayer);
 
-		return "showMonster";
+		return "gameplay/showMonster";
 	}
 
 	@PostMapping("meditate.do")
-	public String meditate(HttpSession session) {
+	public String meditate(HttpSession session, Model model) {
 		Player currentPlayer = (Player) session.getAttribute("player");
 
 		currentPlayer.setCurrentHealth(currentPlayer.getMaxHealth());
 		currentPlayer = playerDAO.updatePlayer(currentPlayer);
-
+		
 		session.setAttribute("player", currentPlayer);
 
-		return "kaerSeren";
+		return "gameplay/meditate";
 	}
 
 }

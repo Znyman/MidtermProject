@@ -47,7 +47,7 @@
 </style>
 </head>
 <body>
-<jsp:include page="nav.jsp" />
+<jsp:include page="../nav.jsp" />
 <div class="container text-center mt-5">
     <h2>Welcome to our game!</h2>
     <img src="https://i.ibb.co/RCtjyDv/DALL-E-2024-02-03-14-11-09-Create-an-image-of-a-Witcher-style-character-standing-on-a-hill-at-dawn-l.png" alt="Witcher Image" class="img-fluid rounded">

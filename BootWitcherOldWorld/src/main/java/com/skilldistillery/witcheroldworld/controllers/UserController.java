@@ -53,6 +53,15 @@ public class UserController {
 	
 	@PostMapping(path = "createAccount.do")
 	public String createUser(User user, RedirectAttributes redirect, HttpSession session) {
+		User loginUser = userDAO.authenticateUser(user.getUsername(), user.getPassword());
+		if (loginUser != null && user != null) {
+			if (loginUser.getUsername().equals(user.getUsername())) {
+				if (loginUser.getPassword().equals(user.getPassword())) {
+					session.setAttribute("loginUser", loginUser);
+					return "redirect:playerSession.do";
+				}
+			}
+		}
 		User managedUser = userDAO.create(user);
 		redirect.addFlashAttribute("loginUser", managedUser);
 		session.setAttribute("loginUser", managedUser);

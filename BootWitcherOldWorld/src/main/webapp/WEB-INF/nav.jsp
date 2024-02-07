@@ -32,11 +32,11 @@
 <nav>
     <ul>
         <li><a href="home.do">Home</a></li>
-        <c:if test="${not empty sessionScope.loginUser}">
+        <c:if test="${not empty loginUser}">
             <li><a href="account.do">Account</a></li>
             <li><a href="logout.do">Logout</a></li>
         </c:if>
-        <c:if test="${empty sessionScope.loginUser}">
+        <c:if test="${empty loginUser}">
             <li><a href="login.do">Login</a></li>
         </c:if>
     </ul>

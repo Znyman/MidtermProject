@@ -1,14 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="jakarta.tags.core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>${location.name}</title>
+<title>Player Defeated</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <style>
-    body {
+   
+	    body {
         background-color: #0e0e10;
         color: #d4d4d2;
         font-family: 'Times New Roman', Times, serif;
@@ -43,54 +44,35 @@
     a:hover {
         color: #f4b942;
     }
+
+    .progress {
+        height: 25px;
+        background-color: #1e2125;
+    }
+    .progress-bar {
+        background-color: #c5b358; /* Witcher gold */
+    }
+    .progress-bar-striped {
+        background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    }
 </style>
 
 </head>
 <body>
-	<jsp:include page="nav.jsp"/>
-	<div class="container">
-		<div class="row">
-			<div class="col-sm">
-				Storyline Information
-				<br>
-				<form action="showMonster.do" method="GET">
-					<input type="submit" value="Fight the monster at this location" />
-				</form>
-				</div>
-			<div class="col-sm">
-				<c:if test="${not empty player.imageUrl}">
-					<img src="${player.imageUrl}">
-				</c:if>
-				<c:if test="${empty player.imageUrl}">
-					<img src="https://i.ibb.co/RCtjyDv/DALL-E-2024-02-03-14-11-09-Create-an-image-of-a-Witcher-style-character-standing-on-a-hill-at-dawn-l.png">
-				</c:if>
-				<br>
-				<form action="manageInventory.do" method="GET">
-					<input type="submit" value="Manage Inventory" />
-				</form>
-			</div>
-			<div class="col-sm">
-				Current Location: ${location.name}
-				<br>
-				<img src="${location.imageUrl}">
-				<br>
-				<form action="changeLocation.do">
-					<input type="hidden" name="locationId" value="1">
-					<input type="submit" value="Go To Kaer Seren">
-				</form>
-				<br>
-				<form action="changeLocation.do">
-					<input type="hidden" name="locationId" value="3">
-					<input type="submit" value="Go To Novigrad">
-				</form>
-			</div>
-		</div>
-	</div>
+<jsp:include page="../nav.jsp" />
+<div class="container">
+<br>
+<h2>Your health has reached zero.</h2><br>
+<h4>You managed to escape back to the nearest town to rest.</h4>
+<h4>Take some time and heal before your next battle.</h4>
+<form action ="meditate.do" method = "POST">
+<input type="submit" class="btn btn-success" value="Meditate">
+</form>
+<br>
+<img src="https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fstaticdelivery.nexusmods.com%2Fmods%2F952%2Fimages%2F7986%2F7986-1677689596-2057705513.png"> 
 
 
-
-
-<!-- Optional JavaScript and Bootstrap JS -->
+</div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.6/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

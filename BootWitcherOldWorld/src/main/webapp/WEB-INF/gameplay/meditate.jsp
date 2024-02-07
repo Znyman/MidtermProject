@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Player Defeated</title>
+<title>Meditating</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <style>
    
@@ -59,20 +59,26 @@
 
 </head>
 <body>
-<jsp:include page="nav.jsp" />
+	<jsp:include page="../nav.jsp" />
+	<div class="container">
+		<br>
+		<h2>You have found a spot to collect yourself</h2>
+		<br>
+		<h4>You are licking your wounds and sharpening your swords, preparing for the next battle to come.</h4>
+		<h4>For you are a Witcher, one of the chosen few monster hunters.</h4>
+		<form action="playGame.do" method="GET">
+			<input type="submit" class="btn btn-success" value="Play Game">
+		</form>
+		<br> <br> <br>
+		<video width="720" height="405" autoplay loop>
+			<source
+				src="https://packaged-media.redd.it/7plhhrbihh4a1/pb/m2-res_1080p.mp4?m=DASHPlaylist.mpd&v=1&e=1707278400&s=74fb079ac6cef169f64ce38dfa536564603ae030#t=0"
+				type="video/mp4">
+		</video>
 
-<h2>Your health has reached zero.</h2><br>
-<h3>You managed to escape back to the Witcher Academy from which you started.</h3>
-<h3>Take some time and heal before your next battle.</h3>
-<form action ="meditate.do" method = "POST">
-<input type="submit" class="btn btn-success" value="Meditate">
-</form>
 
-<img src = "https://i.redd.it/8aiogcy6rukz.jpg">
-
-
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.6/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>

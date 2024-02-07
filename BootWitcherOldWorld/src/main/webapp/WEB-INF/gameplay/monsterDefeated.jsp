@@ -57,7 +57,7 @@
     </style>
 </head>
 <body>
-    <jsp:include page="nav.jsp" />
+    <jsp:include page="../nav.jsp" />
     <div class="container">
         <h2>Congratulations!</h2>
         <br>
@@ -80,6 +80,9 @@
                 </div>
             </c:when>
         </c:choose>
+        <form action="playGame.do" method="GET">
+        <input type="submit" class="btn btn-success" value="Return To Town">
+        </form>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.6/dist/umd/popper.min.js"></script>

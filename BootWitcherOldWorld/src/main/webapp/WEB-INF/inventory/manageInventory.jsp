@@ -48,7 +48,7 @@
 </style>
 </head>
 <body>
-<jsp:include page="nav.jsp" />
+<jsp:include page="../nav.jsp" />
 <div class="container">
     <img src="https://cdna.artstation.com/p/assets/images/images/021/653/600/large/vitaliy-vatsko-2.jpg?1572463828" alt="Inventory Image">
     <h2>Manage Inventory</h2>
@@ -61,7 +61,7 @@
             </c:forEach>
         </c:when>
         <c:otherwise>
-            <p>No weapons found.</p>
+            <p>Please forge a weapon to play the game.</p>
         </c:otherwise>
     </c:choose>
     
@@ -74,7 +74,7 @@
             </c:forEach>
         </c:when>
         <c:otherwise>
-            <p>No armor found.</p>
+            <p>Please make a piece of armor to play the game.</p>
         </c:otherwise>
     </c:choose><br>
     <p>You have ${player.experienceLevel} upgrade points which means you can craft ${player.experienceLevel} pieces of gear before heading out on your next journey!</p>
@@ -84,14 +84,14 @@
     </form>
     <form action="newWeapon.do" method="GET">
         <input type="submit" class="btn btn-secondary" value="Create Weapon">
-    </form>
+    </form><br><br>
 </c:if>
 
-<c:if test="${player.experienceLevel <= 0}">
+<c:if test="${not empty armors && not empty weapons}">
     <p>Battle more monsters to gain upgrade points!</p><br>
  			<form action="playGame.do" method="GET">
             <input type="submit" class="btn btn-success" value="Play Game">
-        </form><br>
+        </form><br><br>
 
 </c:if>
     

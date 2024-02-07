@@ -91,14 +91,19 @@ public class PlayerController {
 
 	@GetMapping("intro.do")
 	public String startGame() {
-		return "introduction";
+		return "gameplay/introduction";
 	}
 
 	@GetMapping("subtractExperience.do")
 	public String experienceUpdate(HttpSession session) {
 		Player managedPlayer = (Player) session.getAttribute("player");
-		managedPlayer.setExperienceLevel(managedPlayer.getExperienceLevel() - 1);
 
+		if (managedPlayer.getExperienceLevel() > 3) {
+			managedPlayer.setExperienceLevel(managedPlayer.getExperienceLevel() - 3);
+
+		} else {
+			managedPlayer.setExperienceLevel(managedPlayer.getExperienceLevel() - 1);
+		}
 		managedPlayer = playerDAO.updatePlayer(managedPlayer);
 		return "redirect:manageInventory.do";
 	}

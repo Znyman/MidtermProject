@@ -26,12 +26,11 @@ public class MonsterController {
 	@GetMapping("showMonster.do")
 	public String showMonster(HttpSession session, Model model) {
 		Player currentPlayer = (Player) session.getAttribute("player");
+		System.out.println("*************************************" + currentPlayer.getWeapons() + "****************************************");
 		List<Weapon> weapons = currentPlayer.getWeapons();
 		List<Armor> armors = currentPlayer.getArmors();
 		session.setAttribute("armors", armors);
-		model.addAttribute("armors", armors);
 		session.setAttribute("weapons", weapons);
-		model.addAttribute("weapons", weapons);
 		
 		if (currentPlayer.getMonster() == null) {
 			Location currentLocation = currentPlayer.getLocation();
@@ -57,6 +56,6 @@ public class MonsterController {
 		session.setAttribute("monster", currentMonster);
 		model.addAttribute("monster", currentMonster);
 		
-		return "showMonster";
+		return "gameplay/showMonster";
 	}
 }
