@@ -49,7 +49,8 @@ public class InventoryController {
 		weapon.setPlayer(currentPlayer);
 		Weapon managedWeapon = weaponDAO.createWeapon(weapon);
 		currentPlayer.addWeapon(managedWeapon);
-		System.out.println("**********************************" + currentPlayer.getWeapons() + "*********************************");
+		System.out.println("**********************************" + currentPlayer.getWeapons()
+				+ "*********************************");
 		session.setAttribute("player", currentPlayer);
 		redirectAttributes.addFlashAttribute("weapon", managedWeapon);
 		redirectAttributes.addFlashAttribute("updateMessage", "Weapon added successfully!");
@@ -78,8 +79,13 @@ public class InventoryController {
 	}
 
 	@PostMapping("deleteWeapon.do")
-	public String deleteWeapon(@RequestParam("id") int id, Model model) {
+	public String deleteWeapon(@RequestParam("id") int id, Model model, HttpSession session) {
+		Player currentPlayer = (Player) session.getAttribute("player");
+		Weapon weapon = weaponDAO.findById(id);
+		currentPlayer.removeWeapon(weapon);
+
 		boolean isDeleted = weaponDAO.deleteWeapon(id);
+		session.setAttribute("player", currentPlayer);
 		if (isDeleted) {
 			model.addAttribute("updateMessage", "Weapon deleted successfully!");
 		} else {
@@ -127,8 +133,13 @@ public class InventoryController {
 	}
 
 	@PostMapping("deleteArmor.do")
-	public String deleteArmor(@RequestParam("id") int id, Model model) {
+	public String deleteArmor(@RequestParam("id") int id, Model model, HttpSession session) {
+		Player currentPlayer = (Player) session.getAttribute("player");
+		Armor armor = armorDAO.findById(id);
+		currentPlayer.removeArmor(armor);
+
 		boolean isDeleted = armorDAO.deleteArmor(id);
+		session.setAttribute("player", currentPlayer);
 		if (isDeleted) {
 			model.addAttribute("updateMessage", "Armor deleted successfully!");
 		} else {
