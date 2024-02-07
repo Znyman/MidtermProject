@@ -56,6 +56,6 @@ public class MonsterController {
 		session.setAttribute("monster", currentMonster);
 		model.addAttribute("monster", currentMonster);
 		
-		return "showMonster";
+		return "gameplay/showMonster";
 	}
 }

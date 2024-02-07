@@ -35,12 +35,12 @@ public class InventoryController {
 		model.addAttribute("weapons", weaponsInventory);
 		List<Armor> armorsInventory = armorDAO.findAll(currentPlayer.getId());
 		model.addAttribute("armors", armorsInventory);
-		return "manageInventory";
+		return "inventory/manageInventory";
 	}
 
 	@GetMapping("newWeapon.do")
 	public String showCreateWeaponForm(Model model) {
-		return "createWeapon";
+		return "inventory/createWeapon";
 	}
 
 	@PostMapping("newWeapon.do")
@@ -65,7 +65,7 @@ public class InventoryController {
 	public String getWeapon(@RequestParam("id") int id, Model model) {
 		Weapon managedWeapon = weaponDAO.findById(id);
 		model.addAttribute("weapon", managedWeapon);
-		return "showWeapon";
+		return "inventory/showWeapon";
 	}
 
 	@PostMapping("updateWeapon.do")
@@ -75,7 +75,7 @@ public class InventoryController {
 		Weapon managedWeapon = weaponDAO.updateWeapon(weapon);
 		model.addAttribute("weapon", managedWeapon);
 		model.addAttribute("updateMessage", "Your weapon has been updated successfully.");
-		return "showWeapon";
+		return "inventory/showWeapon";
 	}
 
 	@PostMapping("deleteWeapon.do")
@@ -91,12 +91,12 @@ public class InventoryController {
 		} else {
 			model.addAttribute("updateMessage", "Weapon not found!");
 		}
-		return "showWeapon";
+		return "inventory/showWeapon";
 	}
 
 	@GetMapping("newArmor.do")
 	public String showCreateArmorForm(Model model) {
-		return "createArmor";
+		return "inventory/createArmor";
 	}
 
 	@PostMapping("newArmor.do")
@@ -121,7 +121,7 @@ public class InventoryController {
 	public String getArmor(@RequestParam("id") int id, Model model) {
 		Armor managedArmor = armorDAO.findById(id);
 		model.addAttribute("armor", managedArmor);
-		return "showArmor";
+		return "inventory/showArmor";
 	}
 
 	@PostMapping("updateArmor.do")
@@ -131,7 +131,7 @@ public class InventoryController {
 		Armor managedArmor = armorDAO.updateArmor(armor);
 		model.addAttribute("armor", managedArmor);
 		model.addAttribute("updateMessage", "Armor updated successfully!");
-		return "showArmor";
+		return "inventory/showArmor";
 	}
 
 	@PostMapping("deleteArmor.do")
@@ -147,7 +147,7 @@ public class InventoryController {
 		} else {
 			model.addAttribute("updateMessage", "Armor not found!");
 		}
-		return "showArmor";
+		return "inventory/showArmor";
 	}
 
 }

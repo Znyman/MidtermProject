@@ -82,11 +82,11 @@
 
 </head>
 <body>
-    <jsp:include page="nav.jsp"/>
+    <jsp:include page="../nav.jsp"/>
     <div class="container">
         <div class="row">
             <div class="col-half">
-                <h2>Storyline Information</h2>
+                <h2>${location.description}</h2>
                 <c:choose>
                     <c:when test="${not empty player.weapons}">
                         <form action="showMonster.do" method="GET">
@@ -118,8 +118,8 @@
 					<input type="submit" class="btn btn-secondary" value="Go To Novigrad">
 				</form>
 				<form action="changeLocation.do">
-					<input type="hidden" name="locationId" value="5">
-					<input type="submit" class="btn btn-secondary" value="Go To Cintra">
+					<input type="hidden" name="locationId" value="4">
+					<input type="submit" class="btn btn-secondary" value="Go To Cidaris">
 				</form>
                 </div>
             </div>

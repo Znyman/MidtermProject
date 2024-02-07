@@ -59,7 +59,7 @@
 
 </head>
 <body>
-<jsp:include page="nav.jsp" />
+<jsp:include page="../nav.jsp" />
 <div class="container">
 <br>
 <h2>Your health has reached zero.</h2><br>

@@ -9,12 +9,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.skilldistillery.witcheroldworld.data.LocationDAO;
 import com.skilldistillery.witcheroldworld.data.MonsterDAO;
 import com.skilldistillery.witcheroldworld.data.PlayerDAO;
 import com.skilldistillery.witcheroldworld.data.WeaponDAO;
 import com.skilldistillery.witcheroldworld.entities.Armor;
-import com.skilldistillery.witcheroldworld.entities.Location;
 import com.skilldistillery.witcheroldworld.entities.Monster;
 import com.skilldistillery.witcheroldworld.entities.Player;
 import com.skilldistillery.witcheroldworld.entities.Weapon;
@@ -33,9 +31,6 @@ public class CombatController {
 	@Autowired
 	private WeaponDAO weaponDAO;
 	
-	@Autowired
-	private LocationDAO locationDAO;
-
 	@PostMapping("witcherAttack.do")
 	public String witcherAttack(@RequestParam("weaponId") int weaponId, HttpSession session, Model model) {
 		Player currentPlayer = (Player) session.getAttribute("player");
@@ -58,7 +53,7 @@ public class CombatController {
 			monsterDAO.deleteMonster(currentPlayer.getMonster().getId());
 			currentPlayer.setMonster(null);
 			session.removeAttribute("monster");
-			return "monsterDefeated";
+			return "gameplay/monsterDefeated";
 		}
 
 		return "redirect:monsterAttack.do";
@@ -88,13 +83,13 @@ public class CombatController {
 		if (currentPlayer.getCurrentHealth() <= 0) {
 			currentPlayer.setMonster(null);
 			session.removeAttribute("monster");
-			return "playerDefeated";
+			return "gameplay/playerDefeated";
 		}
 
 		session.setAttribute("player", currentPlayer);
 		model.addAttribute("player", currentPlayer);
 
-		return "showMonster";
+		return "gameplay/showMonster";
 	}
 
 	@PostMapping("meditate.do")
@@ -106,7 +101,7 @@ public class CombatController {
 		
 		session.setAttribute("player", currentPlayer);
 
-		return "meditate";
+		return "gameplay/meditate";
 	}
 
 }

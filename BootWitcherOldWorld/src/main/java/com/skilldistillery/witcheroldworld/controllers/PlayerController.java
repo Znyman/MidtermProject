@@ -91,7 +91,7 @@ public class PlayerController {
 
 	@GetMapping("intro.do")
 	public String startGame() {
-		return "introduction";
+		return "gameplay/introduction";
 	}
 
 	@GetMapping("subtractExperience.do")
