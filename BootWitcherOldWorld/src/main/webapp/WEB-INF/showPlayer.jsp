@@ -144,6 +144,7 @@
                         <form action="manageInventory.do" method="GET">
                             <input type="submit" class="manage-inventory-button" value="Manage Inventory" />
                         </form>
+                        <br> <br>
                     </div>
                 </c:when>
                 <c:otherwise>

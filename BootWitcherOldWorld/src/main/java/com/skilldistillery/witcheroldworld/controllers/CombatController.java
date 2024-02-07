@@ -104,14 +104,9 @@ public class CombatController {
 		currentPlayer.setCurrentHealth(currentPlayer.getMaxHealth());
 		currentPlayer = playerDAO.updatePlayer(currentPlayer);
 		
-		Location location = locationDAO.findById(1);
-		currentPlayer.setLocation(location);
-		
-		model.addAttribute("location", location);
-		session.setAttribute("location", location);
 		session.setAttribute("player", currentPlayer);
 
-		return "redirect:playGame.do";
+		return "meditate";
 	}
 
 }

@@ -79,7 +79,7 @@
 
         <div>
             <c:choose>
-                <c:when test="${player.experienceLevel > 0}">
+                <c:when test="${player.experienceLevel > 0 && player.experienceLevel <= 3}">
                     <h3>Add a weapon to your inventory</h3>
                     <form action="newWeapon.do" method="POST" id="newWeaponForm">
 
@@ -100,7 +100,32 @@
                     <img src="https://media1.tenor.com/m/MZ8FW4yMgBsAAAAd/ferreiro.gif" alt="Forging Weapon">
                 </c:when>
                 <c:otherwise>
-                    <p>Not enough experience to craft gear. Go kill monsters for experience!</p>
+                    <p>Craft more powerful weapons with higher experience or go kill monsters for more experience!</p>
+                </c:otherwise>
+            </c:choose>
+            <c:choose>
+                <c:when test="${player.experienceLevel > 3}">
+                    <h3>Add a weapon to your inventory</h3>
+                    <form action="newWeapon.do" method="POST" id="newWeaponForm">
+
+                        <label for="name"><em>What is the name of this weapon?</em></label>
+                        <input type="text" id="name" name="name" value="Viper's Sting" required>
+                        <br>
+                        <label for="description"><em>What would you like to say about the description of this weapon?</em></label>
+                        <input type="text" id="description" name="description" value="Punctures through most armor and flesh" required>
+                        <br>
+                        <label for="damage"><em>How much damage does this weapon have?</em></label>
+                        <input type="range" id="damage" name="damage" min="4" max="6">
+                        <br>
+                        <label for="tier"><em>What tier is this weapon now?</em></label>
+                        <input type="range" id="tier" name="tier" min="3" max="4">
+                        <br>
+                        <input type="submit" value="Add Weapon">
+                    </form>
+                    <img src="https://media1.tenor.com/m/MZ8FW4yMgBsAAAAd/ferreiro.gif" alt="Forging Weapon">
+                </c:when>
+                <c:otherwise>
+                    <p>If you save up 4 or more experience from killing monsters, you can craft more powerful weapons!</p>
                 </c:otherwise>
             </c:choose>
             <form action="manageInventory.do" method="GET">
