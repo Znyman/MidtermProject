@@ -49,8 +49,6 @@ public class InventoryController {
 		weapon.setPlayer(currentPlayer);
 		Weapon managedWeapon = weaponDAO.createWeapon(weapon);
 		currentPlayer.addWeapon(managedWeapon);
-		System.out.println("**********************************" + currentPlayer.getWeapons()
-				+ "*********************************");
 		session.setAttribute("player", currentPlayer);
 		redirectAttributes.addFlashAttribute("weapon", managedWeapon);
 		redirectAttributes.addFlashAttribute("updateMessage", "Weapon added successfully!");

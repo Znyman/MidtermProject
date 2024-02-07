@@ -79,7 +79,7 @@
 
         <div>
             <c:choose>
-                <c:when test="${player.experienceLevel > 0}">
+                <c:when test="${player.experienceLevel > 0 && player.experienceLevel <= 3}">
                     <h3>Add armor to your inventory</h3>
                     <form action="newArmor.do" method="POST" id="newArmorForm">
 
@@ -100,13 +100,40 @@
                     <img src="https://media.tenor.com/SHar4XI2XRQAAAAM/gwent-gwentcard.gif" alt="Forging Armor">
                 </c:when>
                 <c:otherwise>
-                    <p>Not enough experience to craft gear. Go kill monsters for experience!</p>
+                    <p>Craft more powerful armor with higher experience or go kill monsters for more experience!</p>
                 </c:otherwise>
             </c:choose>
-            <form action="manageInventory.do" method="GET">
-                            <input type="submit" class="manage-inventory-button" value="Manage Inventory" />
-                        </form>
-        </div>
+            <c:choose>
+                <c:when test="${player.experienceLevel > 3}">
+                    <h3>Add armor to your inventory</h3>
+                    <form action="newArmor.do" method="POST" id="newArmorForm">
+
+                        <label for="name"><em>What would you like to name this armor?</em></label>
+                        <input type="text" id="name" name="name" value="Leather Bracers" required>
+                        <br>
+                        <label for="description"><em>What would you like to say about the description of this armor?</em></label>
+                        <input type="text" id="description" name="description" value="Sturdy bracers from the Witcher Academy" required>
+                        <br>
+                        <label for="defense"><em>How much defense does this armor have?</em></label>
+                        <input type="range" id="defense" name="defense" min="3" max="4">
+                        <br>
+                        <label for="tier"><em>What tier is this armor?</em></label>
+                        <input type="range" id="tier" name="tier" min="3" max="4">
+                        <br>
+                        <input type="submit" value="Add Armor">
+                    </form>
+                    <img src="https://media.tenor.com/SHar4XI2XRQAAAAM/gwent-gwentcard.gif" alt="Forging Armor">
+                </c:when>
+                <c:otherwise>
+                    <p>Craft more powerful armor with higher experience or go kill monsters for more experience!</p>
+                </c:otherwise>
+            </c:choose>
+			<form action="manageInventory.do" method="GET">
+				<input type="submit" class="manage-inventory-button"
+					value="Manage Inventory" />
+			</form>
+			<br> <br>
+		</div>
     </div>
 </body>
 </html>
