@@ -72,7 +72,7 @@ public class CombatController {
 		List<Armor> armors = currentPlayer.getArmors();
 		int totalDefense = 0;
 		for (Armor armor : armors) {
-			totalDefense = armor.getDefense();
+			totalDefense += armor.getDefense();
 		}
 
 		int damageToWitcher = currentMonster.getDamage() - totalDefense;
@@ -108,7 +108,7 @@ public class CombatController {
 		session.setAttribute("location", location);
 		session.setAttribute("player", currentPlayer);
 
-		return "kaerSeren";
+		return "redirect:playGame.do";
 	}
 
 }
