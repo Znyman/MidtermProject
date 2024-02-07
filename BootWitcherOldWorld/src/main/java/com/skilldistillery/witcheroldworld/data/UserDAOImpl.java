@@ -19,8 +19,13 @@ public class UserDAOImpl implements UserDAO {
 	public User authenticateUser(String username, String password) {
 		String jpqlQ = "SELECT u FROM User u WHERE u.username = :username AND u.password = :password";
 
-		User u = em.createQuery(jpqlQ, User.class).setParameter("username", username).setParameter("password", password)
-				.getSingleResult();
+		User u;
+		try {
+			u = em.createQuery(jpqlQ, User.class).setParameter("username", username).setParameter("password", password)
+					.getSingleResult();
+		} catch (Exception e) {
+			return null;
+		}
 
 		return u;
 	}
