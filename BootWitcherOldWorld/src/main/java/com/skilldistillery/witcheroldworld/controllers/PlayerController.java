@@ -53,13 +53,18 @@ public class PlayerController {
 	@GetMapping("playerSession.do")
 	public String setPlayerSession(HttpSession session, Model model) {
 		User currentUser = (User) session.getAttribute("loginUser");
-		Player currentPlayer = playerDAO.findByUserId(currentUser.getId());
-
-		if (currentPlayer != null) {
-			model.addAttribute("player", currentPlayer);
-			session.setAttribute("player", currentPlayer);
+		if (currentUser != null) {
+			Player currentPlayer = playerDAO.findByUserId(currentUser.getId());
+			
+			if (currentPlayer != null) {
+				model.addAttribute("player", currentPlayer);
+				session.setAttribute("player", currentPlayer);
+			}
+			return "account";
+			
+		} else {
+			return "home";
 		}
-		return "account";
 	}
 
 	@GetMapping("showPlayer.do")
