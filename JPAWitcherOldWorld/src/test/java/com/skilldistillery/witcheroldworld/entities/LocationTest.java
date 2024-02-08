@@ -45,7 +45,7 @@ class LocationTest {
 	void test_User_entity_mapping() {
 		assertNotNull(location);
 		assertEquals("Kaer Seren", location.getName());
-		assertEquals("coastal gryphon witcher training academy", location.getDescription());
+		assertEquals("A secluded fortress nestled in the wilderness, Kaer Seren stands as a bastion against the encroaching dangers of the Northern Realms. Home to skilled Witchers, the stronghold is a training ground for monster slayers.", location.getDescription());
 	}
 
 }
