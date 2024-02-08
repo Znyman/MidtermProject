@@ -32,11 +32,13 @@ public class LocationController {
 			currentLocation = locationDao.findById(1);
 			currentPlayer.setLocation(currentLocation);
 			playerDao.updatePlayer(currentPlayer);
+			session.setAttribute("player", currentPlayer);
 			model.addAttribute("player", currentPlayer);
 			model.addAttribute("location", currentLocation);
 			return "locations/kaerSeren";
 		}
 
+		session.setAttribute("location", currentLocation);
 		model.addAttribute("location", currentLocation);
 
 		switch (currentLocation.getName()) {
@@ -90,6 +92,7 @@ public class LocationController {
 		currentPlayer.setLocation(updatedLocation);
 		playerDao.updatePlayer(currentPlayer);
 		session.setAttribute("player", currentPlayer);
+		session.setAttribute("location", updatedLocation);
 		return "redirect:playGame.do";
 	}
 
