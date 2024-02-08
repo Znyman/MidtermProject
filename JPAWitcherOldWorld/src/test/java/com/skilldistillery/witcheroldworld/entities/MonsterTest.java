@@ -45,7 +45,8 @@ class MonsterTest {
 	void test_Monster_entity_mapping() {
 		assertNotNull(monster);
 		assertEquals("Ekimmara", monster.getName());
-		assertEquals(3, monster.getDamage());
+		assertEquals(7, monster.getDamage());
+		assertEquals(12, monster.getHealth());
 	}
 
 }
