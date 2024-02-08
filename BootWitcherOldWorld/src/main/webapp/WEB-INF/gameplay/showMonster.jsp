@@ -130,7 +130,7 @@ a:hover {
 							<label for="weaponSelect">Choose your weapon:</label> <select
 								id="weaponSelect" name="weaponId" class="form-control">
 								<c:forEach items="${weapons}" var="weapon">
-									<option value="${weapon.id}">${weapon.name}| Weapon
+									<option value="${weapon.id}">${weapon.name} | Weapon
 										Damage: ${weapon.damage}</option>
 								</c:forEach>
 							</select> <br><input type="hidden" name="monsterId" value="${monster.id}" />
@@ -178,7 +178,7 @@ a:hover {
 								aria-valuenow="${monster.experienceReward}" aria-valuemin="0"
 								aria-valuemax="20">${monster.experienceReward}</div>
 						</div>
-
+						<br>
 						<p>${monster.description}</p>
 					</div>
 				</div>
