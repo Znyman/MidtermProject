@@ -38,6 +38,18 @@
         <c:if test="${empty loginUser}">
             <li><a href="login.do">Login</a></li>
         </c:if>
-        <li><a href="https://cf.geekdo-images.com/_Pam5FggR-mtC_UQq9L4-A__imagepage/img/p1rtX-yYNomTmIWoEI2qnh0r-Fs=/fit-in/900x600/filters:no_upscale():strip_icc()/pic6516763.jpg" target="_blank">Map</a></li>
+        <li><a href="#" onclick="openMapPopup()">Map</a></li>
     </ul>
 </nav>
+
+<script>
+    function openMapPopup() {
+        var mapUrl = 'https://cf.geekdo-images.com/_Pam5FggR-mtC_UQq9L4-A__imagepagezoom/img/aDuj4y_ezQkKMMiETL4DMNa1S68=/fit-in/1200x900/filters:no_upscale():strip_icc()/pic6516763.jpg';
+        var width = 800;
+        var height = 600;
+        var left = (screen.width / 2) - (width / 2);
+        var top = (screen.height / 2) - (height / 2);
+        var features = 'width=' + width + ',height=' + height + ',top=' + top + ',left=' + left + ',resizable=yes,scrollbars=yes';
+        window.open(mapUrl, 'MapPopup', features);
+    }
+</script>
