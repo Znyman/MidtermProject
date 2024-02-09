@@ -97,7 +97,7 @@
                         <br>
                         <input type="submit" value="Add Weapon">
                     </form>
-                    <img src="https://media1.tenor.com/m/MZ8FW4yMgBsAAAAd/ferreiro.gif" alt="Forging Weapon">
+                   
                 </c:when>
                 <c:otherwise>
                     <p>Craft more powerful weapons with higher experience or go kill monsters for more experience!</p>
@@ -128,6 +128,7 @@
                     <p>If you save up 4 or more experience from killing monsters, you can craft more powerful weapons!</p>
                 </c:otherwise>
             </c:choose>
+            <img src="https://media1.tenor.com/m/MZ8FW4yMgBsAAAAd/ferreiro.gif" alt="Forging Weapon">
 			<form action="manageInventory.do" method="GET">
 				<input type="submit" class="manage-inventory-button"
 					value="Manage Inventory" />
