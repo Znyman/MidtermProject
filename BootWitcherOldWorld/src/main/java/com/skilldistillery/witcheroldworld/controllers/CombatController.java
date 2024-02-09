@@ -81,7 +81,10 @@ public class CombatController {
 		}
 
 		if (currentPlayer.getCurrentHealth() <= 0) {
-			currentPlayer.setMonster(null);
+			if (currentPlayer.getMonster() != null) {
+				currentPlayer.setMonster(null);
+				monsterDAO.deleteMonsterByPlayerId(currentPlayer.getId());
+			}
 			session.removeAttribute("monster");
 			return "gameplay/playerDefeated";
 		}
