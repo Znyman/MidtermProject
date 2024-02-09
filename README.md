@@ -33,6 +33,10 @@ The project was developed using a diverse set of technologies:<br>
 <strong>CSS/Bootstrap</strong><br>
 <strong>JavaScript</strong><br>
 
+# <h2>AWS Deployment</h2><br>
+http://3.13.90.222:8080/BootWitcherOldWorld/ 
+
+
 # <h2>How To Use</h2><br>
 
 <strong>Install prerequisites:</strong><br>
