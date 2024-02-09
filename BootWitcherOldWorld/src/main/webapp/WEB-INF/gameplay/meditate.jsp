@@ -59,7 +59,7 @@
 
 </head>
 <body>
-	<jsp:include page="../nav.jsp" />
+	
 	<div class="container">
 		<br>
 		<h2>You have found a spot to collect yourself</h2>

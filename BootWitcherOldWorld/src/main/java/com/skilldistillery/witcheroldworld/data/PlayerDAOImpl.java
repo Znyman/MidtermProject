@@ -60,10 +60,13 @@ public class PlayerDAOImpl implements PlayerDAO {
 	@Override
 	public Player findByUserId(int userId) {
 		String jpql = "SELECT player FROM Player player WHERE player.user.id = :userId";
-		Player player;
+		Player player = null;
+		System.out.println("**************" + userId);
 		try {
 			player = em.createQuery(jpql, Player.class).setParameter("userId", userId).getSingleResult();
 		} catch (Exception e) {
+			System.out.println(e);
+			e.printStackTrace();
 			return null;
 		}
 		return player;

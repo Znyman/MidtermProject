@@ -8,6 +8,6 @@ public interface MonsterDAO {
 	Monster updateMonster(Monster monster);
 	Monster createMonster(Monster monster);
 	boolean deleteMonster(int id);
-	
+	boolean deleteMonsterByPlayerId(int playerId);
 	
 }
