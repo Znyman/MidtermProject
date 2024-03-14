@@ -57,7 +57,8 @@ public class MonsterDAOImpl implements MonsterDAO {
 	@Override
 	public boolean deleteMonsterByPlayerId(int playerId) {
 		String jpql = "SELECT m FROM Monster m WHERE m.player.id = :pId AND m.id > 19";
-		List<Monster> monsters = em.createQuery(jpql, Monster.class).setParameter("pId", playerId).getResultList();
+		List<Monster> monsters = em.createQuery(jpql, Monster.class).
+				setParameter("pId", playerId).getResultList();
 		for (Monster monster : monsters) {
 			if (monster.getLocations() != null) {
 				List<Location> locations = new ArrayList<>(monster.getLocations());
